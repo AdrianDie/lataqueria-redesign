@@ -3,9 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La Taqueria Catering - Autentisk meksikansk catering for eventer, bedriftsfester og private sammenkomster i Bergen.">
-    <title>La Taqueria — Catering for alle anledninger</title>
+    <meta name="description" content="La Taqueria Catering i Bergen - autentisk meksikansk mat til bedriftsfester, events og private sammenkomster. Taco-buffet, tostadas og loaded nachos levert til deg.">
+    <title>Catering Bergen — Meksikansk mat til events | La Taqueria</title>
+    <link rel="canonical" href="https://adriandie.github.io/lataqueria-redesign/">
+    <meta name="theme-color" content="#1a1a1a">
     <link rel="icon" href="favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="La Taqueria">
+    <meta property="og:locale" content="nb_NO">
+    <meta property="og:url" content="https://adriandie.github.io/lataqueria-redesign/">
+    <meta property="og:title" content="Catering Bergen — Meksikansk mat til events | La Taqueria">
+    <meta property="og:description" content="Autentisk meksikansk catering til bedriftsfester, events og private sammenkomster i Bergen. Taco-buffet, tostadas og loaded nachos levert til deg.">
+    <meta property="og:image" content="https://adriandie.github.io/lataqueria-redesign/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catering Bergen — Meksikansk mat til events | La Taqueria">
+    <meta name="twitter:description" content="Autentisk meksikansk catering til bedriftsfester, events og private sammenkomster i Bergen.">
+    <meta name="twitter:image" content="https://adriandie.github.io/lataqueria-redesign/images/og-image.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FoodEstablishment",
+        "name": "La Taqueria",
+        "servesCuisine": "Meksikansk",
+        "image": "https://adriandie.github.io/lataqueria-redesign/images/og-image.jpg",
+        "url": "https://adriandie.github.io/lataqueria-redesign/",
+        "telephone": "+4740318407",
+        "email": "post@lataqueria.no",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Engen 8",
+            "postalCode": "5011",
+            "addressLocality": "Bergen",
+            "addressCountry": "NO"
+        },
+        "sameAs": [
+            "https://www.facebook.com/lataqueria.no/",
+            "https://www.instagram.com/lataqueria.no/"
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+                "opens": "14:00",
+                "closes": "21:30"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Friday", "Saturday"],
+                "opens": "14:00",
+                "closes": "22:30"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "14:00",
+                "closes": "21:30"
+            }
+        ],
+        "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Catering",
+                "description": "Mobil catering med meksikansk mat for bedriftsfester, events og private sammenkomster i Bergen og omegn."
+            }
+        }
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -276,14 +345,13 @@
             font-size: 16px;
         }
 
-        .image-placeholder {
-            background: linear-gradient(135deg, rgba(71, 163, 145, 0.3) 0%, rgba(255, 239, 180, 0.1) 100%);
-            border: 2px dashed #47a391;
+        .dish-image {
+            width: 100%;
+            aspect-ratio: 800 / 1121;
+            object-fit: cover;
             border-radius: 4px;
-            padding: 40px;
-            text-align: center;
-            color: #47a391;
-            font-size: 14px;
+            display: block;
+            border: 1px solid #47a391;
         }
 
         /* Process Steps */
@@ -312,7 +380,7 @@
             margin: 0 auto 15px;
         }
 
-        .step h4 {
+        .step h3 {
             color: #ffefb4;
             margin-bottom: 10px;
         }
@@ -464,7 +532,7 @@
                 <div class="package">
                     <h3>Mingel & Appetittvekkere</h3>
                     <p>Perfekt for små sammenkomster og nettverkinger</p>
-                    <div class="price">Fra 450,- per person</div>
+                    <div class="price">[legg inn pris]</div>
                     <ul class="package-features">
                         <li>Taco-bites (3 stk)</li>
                         <li>Nachos med guacamole</li>
@@ -478,7 +546,7 @@
                 <div class="package">
                     <h3>Klassisk Buffet</h3>
                     <p>Vår mest populære valg — kompllett matoversikt</p>
-                    <div class="price">Fra 650,- per person</div>
+                    <div class="price">[legg inn pris]</div>
                     <ul class="package-features">
                         <li>2 kjøtttyper</li>
                         <li>1 vegetaralternativ</li>
@@ -493,7 +561,7 @@
                 <div class="package">
                     <h3>Ekslusiv Premium</h3>
                     <p>For de som ønsker noe særskilt</p>
-                    <div class="price">Fra 950,- per person</div>
+                    <div class="price">[legg inn pris]</div>
                     <ul class="package-features">
                         <li>3+ kjøtttyper</li>
                         <li>Premium rekebuffet</li>
@@ -525,15 +593,11 @@
                         <li>Guacamole, sølvløk, koriander</li>
                     </ul>
                 </div>
-                <div class="image-placeholder">
-                    [Taco Buffet Bilde]
-                </div>
+                <img class="dish-image" src="images/taco-buffet.webp" srcset="images/taco-buffet.webp 800w, images/taco-buffet@2x.webp 1200w" sizes="(max-width: 768px) 90vw, 560px" width="800" height="1121" loading="lazy" decoding="async" alt="Bord fylt med tostadas, reker, guacamole og nachos - taco-buffet fra La Taqueria">
             </div>
 
             <div class="two-col" style="margin-top: 80px;">
-                <div class="image-placeholder">
-                    [Quesadilla & Burrito Bilde]
-                </div>
+                <img class="dish-image" src="images/quesadilla-burrito.webp" srcset="images/quesadilla-burrito.webp 800w, images/quesadilla-burrito@2x.webp 1200w" sizes="(max-width: 768px) 90vw, 560px" width="800" height="1121" loading="lazy" decoding="async" alt="Tostadas med reker, syltet rødløk og koriander, servert på La Taqueria">
                 <div>
                     <h3>🌯 Quesadillas & Burritos</h3>
                     <p>Når du ønsker en mer formell servering. Vi lager ferdiglaget retter — gjestene trenger bare å spise.</p>
@@ -561,9 +625,7 @@
                         <li>Varmt, akkurat laget</li>
                     </ul>
                 </div>
-                <div class="image-placeholder">
-                    [Fajitas Bilde]
-                </div>
+                <img class="dish-image" src="images/fajitas.webp" srcset="images/fajitas.webp 800w, images/fajitas@2x.webp 1200w" sizes="(max-width: 768px) 90vw, 560px" width="800" height="1121" loading="lazy" decoding="async" alt="Loaded nachos med oksekjøtt, ostesaus og syltet rødløk fra La Taqueria">
             </div>
         </div>
     </section>
@@ -575,22 +637,22 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h4>Kontakt oss</h4>
+                    <h3>Kontakt oss</h3>
                     <p>Ring eller epost med dato, antall personer og preferanser</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h4>Vi lager tilbud</h4>
+                    <h3>Vi lager tilbud</h3>
                     <p>Velg pakke og få priser tilpasset dine ønsker</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h4>Bekreftelse</h4>
+                    <h3>Bekreftelse</h3>
                     <p>Vi bekrefter dato, tidspunkt og detaljer</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h4>Vi leverer</h4>
+                    <h3>Vi leverer</h3>
                     <p>Maten kommer varmt, frisk og klar til servering</p>
                 </div>
             </div>
