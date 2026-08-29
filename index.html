@@ -250,6 +250,100 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 		color: #000;
 	}
 }
+
+/* --- MENU TEASER (3 dishes + link to /meny/) --- */
+.menu-teaser-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+@media (min-width: 700px) { .menu-teaser-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+.menu-teaser-card {
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+	aspect-ratio: 4 / 5;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-teaser-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.35); }
+.menu-teaser-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.4s ease;
+}
+.menu-teaser-card:hover img { transform: scale(1.05); }
+.menu-teaser-info {
+	position: absolute;
+	left: 0; right: 0; bottom: 0;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 16px;
+	background: linear-gradient(to top, rgba(10,10,10,.88), rgba(10,10,10,0));
+}
+.menu-teaser-info h3 { margin: 0; font-size: 19px; color: #FFEFB4; font-weight: 700; }
+.menu-teaser-price { font-size: 17px; color: #47a391; font-weight: 700; white-space: nowrap; }
+
+/* --- HVORFOR LA TAQUERIA --- */
+.whyus-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 28px;
+	max-width: 1100px;
+	margin: 0 auto;
+	text-align: center;
+}
+@media (min-width: 640px)  { .whyus-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .whyus-grid { grid-template-columns: repeat(4, 1fr); } }
+.whyus-icon { width: 40px; height: 40px; color: #47a391; margin-bottom: 14px; }
+.whyus-card h3 { margin: 0 0 8px; font-size: 18px; color: #FFEFB4; }
+.whyus-card p { margin: 0; font-size: 15px; line-height: 1.6; color: #cfcfcf; }
+
+/* --- CATERING TEASER --- */
+.catering-teaser-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: clamp(28px, 4vw, 56px);
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.catering-teaser-photo { flex: 1 1 380px; }
+.catering-teaser-photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; display: block; }
+.catering-teaser-text { flex: 1 1 380px; }
+.catering-teaser-text .av-special-heading { text-align: left; }
+.catering-teaser-text p { font-size: 18px; line-height: 1.6; color: #e6e6e6; max-width: 48ch; margin: 0 0 22px; }
+
+/* --- ANMELDELSER --- */
+.reviews-box { max-width: 560px; margin: 0 auto; text-align: center; }
+.reviews-stars { display: flex; justify-content: center; gap: 6px; margin-bottom: 14px; }
+.reviews-stars svg { width: 30px; height: 30px; color: #FFEFB4; }
+.reviews-star-partial { clip-path: inset(0 40% 0 0); opacity: .95; }
+.reviews-score { font-size: 40px; font-weight: 700; color: #FFEFB4; line-height: 1; }
+.reviews-score span { font-size: 17px; font-weight: 500; color: #cfcfcf; margin-left: 6px; }
+.reviews-count { margin: 10px 0 26px; font-size: 16px; color: #cfcfcf; }
+
+/* --- ÅPNINGSTIDER + KART --- */
+.hoursmap-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: clamp(28px, 4vw, 56px);
+	max-width: 1100px;
+	margin: 0 auto;
+	align-items: stretch;
+}
+.hoursmap-info { flex: 1 1 380px; }
+.hoursmap-info .av-special-heading { text-align: left; }
+.hoursmap-address { font-size: 18px; color: #FFEFB4; margin: 0 0 20px; }
+.hoursmap-list { list-style: none; margin: 0 0 26px; padding: 0; max-width: 380px; }
+.hoursmap-list li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 16px; color: #e6e6e6; }
+.hoursmap-map { flex: 1 1 380px; border-radius: 8px; overflow: hidden; min-height: 320px; }
+.hoursmap-map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; display: block; filter: grayscale(0.3) contrast(1.05); }
 </style>
 </head>
 
@@ -267,7 +361,7 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 		<div  id='header_main' class='container_wrap container_wrap_logo'>
 
         <div class='container av-logo-container'><div class='inner-container'><span class='logo avia-standard-logo'><a href='./' class=''><img src="images/logo.png" height="100" width="300" alt='La Taqueria' title='' /></a></span><nav class='main_menu' data-selectname='Select a page'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" ><div class="avia-menu av-main-nav-wrap"><ul role="menu" class="menu av-main-nav" id="avia-menu"><li role="menuitem" id="menu-item-788" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-1"><a href="#hero" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">HOME</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li role="menuitem" id="menu-item-600" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-2"><a href="#menu" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">MENY</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
+<li role="menuitem" id="menu-item-600" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-2"><a href="meny/" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">MENY</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
 <li role="menuitem" id="menu-item-602" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-mega-parent  menu-item-top-level menu-item-top-level-3"><a href="#aboutus" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">OM OSS</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
 <li role="menuitem" id="menu-item-606" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-mega-parent  menu-item-top-level menu-item-top-level-4"><a href="#takeaway" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">BORDBESTILLING</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
 <li role="menuitem" id="menu-item-601" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-top-level menu-item-top-level-5"><a href="#contact" itemprop="url" tabindex="0"><span class="avia-bullet"></span><span class="avia-menu-text">KONTAKT</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
@@ -309,363 +403,42 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 
 
 </div></div></div><!-- close content main div --></div></div><div id='av_section_3'  class='avia-section av-l4whwv7p-f0494aadae7a86109bfe8d660c3f8e00 main_color avia-section-small avia-no-border-styling  avia-builder-el-14  el_after_av_section  el_before_av_section  avia-bg-style-scroll container_wrap fullsize'  ><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
-<section  id="Starter"  class='av_textblock_section av-an5e9-666beb740e75df97abb2852ff3a48a72'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h1>Hovedretter</h1>
-</div></section>
-<div class='flex_column av-hhncvl-e4ef1335be518fb9ce76b428c832fec7 av_one_half  avia-builder-el-16  el_after_av_textblock  el_before_av_one_half  first flex_column_div column-top-margin'     ><section  id="Starter"  class='av_textblock_section av-wpnl-8500f3cff3ad54093e67fac43e5aa1d1'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2> <strong data-start="175" data-end="199">Forretter</strong></h2>
-</div></section>
-<div  id="Dips"  class='av-catalogue-container av-h6auux-808c412d4e094e1d61560b1ae9c4a877  avia-builder-el-18  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-m5o3lerh-a6ed1aee987a615147b85ed406369654'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Ceviche</div><div class='av-catalogue-price'>239,-</div></div><div class="av-catalogue-content">
-Argentinske reker, rødløk, tomat, avokado, lime, koriander, ají, salt, pepper og nachos.<br data-start="317" data-end="320" /><strong data-start="320" data-end="334">Allergener</strong>: Skalldyr (1), gluten (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-m5o3hwpu-5512539f5f5849b0309b5f5db9d6cd61'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Tentempié de Scampis</div><div class='av-catalogue-price'>119,-</div></div><div class="av-catalogue-content">
-Fem mørbankede reker akkompagnert av vår hjemmelagde mangosaus.<br data-start="466" data-end="469" /><strong data-start="469" data-end="483">Allergener</strong>: Skalldyr (1)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-m5o3ql9u-dc50536230de11c2edb81a1c8f8f57b6'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Nachos de la Casa</div><div class='av-catalogue-price'>139,-</div></div><div class="av-catalogue-content">
-Nachos, cheddarsaus, hjemmelaget guacamole, syltet rødløk, lime, koriander og salsa.<br data-start="621" data-end="624" /><strong data-start="624" data-end="638">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-gv24n5-33-697936dfa403488924b64513754467bd'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Nachos Pico de Gallo </div><div class='av-catalogue-price'>129,-</div></div><div class="av-catalogue-content">
-Klassiske nachos med tradisjonelle meksikanske grønnsaker: tomat, løk, koriander, lime, salt, olje og eddik.<br data-start="799" data-end="802" /><strong data-start="802" data-end="816">Allergener</strong>: Ingen<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-feezc1-e4d3b79d9b563c4937208b55b6facd3d'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Taco´s</h2>
-</div></section>
-<div  class='av-catalogue-container av-faziw1-dd7c132cd6c06502484009697d3bee69  avia-builder-el-20  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-f7ahjd-98a2ea4687c3224eda3d63c297bb975d'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Veggie</div><div class='av-catalogue-price'>249,-</div></div><div class="av-catalogue-content">
-Bønner og kikerter, salsa de la casa, mozzarella, guacamole, syltet rødløk, rød pepper, lime og koriander.<br data-start="1779" data-end="1782" /><strong data-start="1782" data-end="1796">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-eyy9o1-ab4e410a73487ea8aad8cc881686a133'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Al pastor</div><div class='av-catalogue-price'>265,-</div></div><div class="av-catalogue-content">
-Marinert svinekjøtt med hvitløk, ananas, mozzarella, guacamole, lime og koriander.<br data-start="1920" data-end="1923" /><strong data-start="1923" data-end="1937">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-esr269-42dcf24e7387b69980ae33236f8e0363'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Polo loco</div><div class='av-catalogue-price'>265,-</div></div><div class="av-catalogue-content">
-Hakket kylling, paprika, mozzarella, salsa de la casa, guacamole, syltet rødløk, rød pepper, lime og koriander.<br data-start="2091" data-end="2094" /><strong data-start="2094" data-end="2108">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-eg7lux-ba4d65d8cc5f4b24194ee1d377d3006e'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Chorizo</div><div class='av-catalogue-price'>270,-</div></div><div class="av-catalogue-content">
-Spansk chorizo, mozzarella, salsa de la casa, guacamole, syltet rødløk, rød pepper, rømme, lime og koriander.<br data-start="2257" data-end="2260" /><strong data-start="2260" data-end="2274">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-elng0h-41f9098bba12ef4f71e308b034f7f065'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Cochinita de Pibil</div><div class='av-catalogue-price'>270,-</div></div><div class="av-catalogue-content">
-Pulled beef, salsa de la casa, syltet rødløk, rød pepper, mozzarella, guacamole, lime og koriander.<br data-start="2424" data-end="2427" /><strong data-start="2427" data-end="2441">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-elng0h-2-6f311967674e15e015698d688583dc7d'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Carnitas </div><div class='av-catalogue-price'>270,-</div></div><div class="av-catalogue-content">
-Pulled pork, salsa de la casa, mozzarella, hvitløk, ananas, rød pepper, guacamole, lime og koriander.<br data-start="2583" data-end="2586" /><strong data-start="2586" data-end="2600">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-elng0h-1-25f0a6c51f457fc5020c06683ea5844d'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Gambas</div><div class='av-catalogue-price'>265,-</div></div><div class="av-catalogue-content">
-Møre reker med mangosalsa, mozzarella, syltet rødløk, rømme, lime og koriander.<br data-start="2718" data-end="2721" /><strong data-start="2721" data-end="2735">Allergener</strong>: Skalldyr (1), melk (2)<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-aqytg1-44f62b4051c8d1d69e25eead592f622c'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2 data-start="3990" data-end="4036"><strong data-start="3996" data-end="4034">Taco Buffet</strong></h2>
-<p data-start="4037" data-end="4129">
-</div></section>
-<div  class='av-catalogue-container av-agn84p-6c6dd6685b941526998d5b5f5383c2b5  avia-builder-el-22  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-ab581l-f52bcef6b323cce29051bcb61df65531'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>– Spis så mye du vil</div><div class='av-catalogue-price'>439,-</div></div><div class="av-catalogue-content">
-Nyt ubegrenset taco i 2 timer!<br />
-Velg fra vårt varierte utvalg av saftige kjøtt- og vegetar-tacos,<br />
-friske salsas, guacamole og smakfulle nachos.<br />
-Tilbudet gjelder fra mandag til torsdag! Kun kr 439,- per person<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-gp3n6x-b5dbc4a41be22d7cfb71daff34a4fe63'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Party Mix</h2>
-</div></section>
-<div  class='av-catalogue-container av-gj86jd-fb23906b16dd06ec9b844f30cf89743e  avia-builder-el-24  el_after_av_textblock  avia-builder-el-last '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-gb3p7t-8ed8258987cdd2c1c2f086456990fe57'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>12 stk Tacos</div><div class='av-catalogue-price'>1199,-</div></div><div class="av-catalogue-content">
-En smakfull kombinasjon<br />
-av våre beste tacos!</p>
-<p>Inneholder:<br />
-2 x Al Pastor<br />
-2 x Pollo Loco<br />
-2 x Chorizo<br />
-2 x Cochinita de Pibil<br />
-2 x Carnitas<br />
-2 x Gambas<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-g5vn5l-26f3abc67fb844edee87e759753f41de'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>8 stk Quesadilla</div><div class='av-catalogue-price'>999,-</div></div><div class="av-catalogue-content">
-<p data-start="3896" data-end="3983">En smakfull kombinasjon<br />
-av våre beste quesadillas!</p>
-<p data-start="3896" data-end="3983">Inneholder:<br />
-2 x Pollo Loco Quesadilla<br />
-2 x Cochinita de Pibil Quesadilla<br />
-2 x Carnitas Quesadilla<br />
-2 x Al Pastor Quesadilla</p>
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mja0usjb-c5999e5381e122bfa5c2d4493e18ebab'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>6-retters delemeny</div><div class='av-catalogue-price'>550,-</div></div><div class="av-catalogue-content">
-550,- per person<br />
-(min. 2 personer)</p>
-<p>Nachos de la casa<br />
-Servert med salsa, guacamole,<br />
-cheddar-dip og pico de gallo<br />
-– en perfekt start på kvelden.</p>
-<p>To typer taco per person<br />
-Utvalg av våre mest populære<br />
-varianter, fulle av autentiske<br />
-meksikanske smaker.</p>
-<p>Fajitas-plate for to<br />
-Rykende varm fajitas med tilbehør og friske grønnsaker<br />
-– laget for deling.</p>
-<p>Enchiladas for to<br />
-Saftige, smakfulle enchiladas<br />
-gratinert med ost.</p>
-<p>Crema Catalana<br />
-Vår egen kremet dessert med<br />
-hint av sitrus og karamell.<br />
-</div></div></div></li>
-</ul></div></div><div class='flex_column av-1er2vl-23ed223cc3bc13642f48984edfbb8af4 av_one_half  avia-builder-el-25  el_after_av_one_half  el_before_av_one_full  flex_column_div column-top-margin'     ><section  class='av_textblock_section av-dws3rd-3089b8b679a02e9472791f8646f87888'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Burrito´s</h2>
-</div></section>
-<div  class='av-catalogue-container av-dreje9-a9159a8cdcc539d79e4d12f1c7834323  avia-builder-el-27  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-dpcm4p-b391165aab4b6512cbfb2fe5ec8b2175'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Veggie</div><div class='av-catalogue-price'>239,-</div></div><div class="av-catalogue-content">
-Bønner og kikerter, salsa de la casa, mozzarella, guacamole, syltet rødløk, rød pepper, lime og koriander.<br data-start="2918" data-end="2921" /><strong data-start="2921" data-end="2935">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-dfdou1-410ee796a65a00c7dd7a51d2a6eb9953'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Polo loco</div><div class='av-catalogue-price'>259,-</div></div><div class="av-catalogue-content">
-Hakket kylling, paprika, mozzarella, salsa de la casa, guacamole, syltet rødløk, rød pepper, lime og koriander.<br data-start="3101" data-end="3104" /><strong data-start="3104" data-end="3118">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-d9djyx-ada7d6a04caf8b7d9d1bd91271b88f7b'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Al pastor</div><div class='av-catalogue-price'>259,-</div></div><div class="av-catalogue-content">
-<p data-start="3172" data-end="3290">Marinert svinekjøtt, hvitløk, ananas, mozzarella, guacamole, lime og koriander.<br data-start="3251" data-end="3254" /><strong data-start="3254" data-end="3268">Allergener</strong>: Melk (2), gluten (5)</p>
-<h3 data-start="3292" data-end="3330"></h3>
-</div></div></div></li>
-<li><div class='av-catalogue-item av-d3re6x-dbdd4b4618b0b3050ab4bda527ebf75e'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Al pastor spesial</div><div class='av-catalogue-price'>285,-</div></div><div class="av-catalogue-content">
-Marinert svinekjøtt, hvitløk, ananas, mozzarella, guacamole, lime, koriander og bacon.<br data-start="3417" data-end="3420" /><strong data-start="3420" data-end="3434">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-cyq5i1-f9defe6c3cef80a4fe11a942e6fc2bc5'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Cochinita de Pibil </div><div class='av-catalogue-price'>265,-</div></div><div class="av-catalogue-content">
-Pulled beef, salsa de la casa, syltet rødløk, rød pepper, mozzarella, guacamole, lime og koriander.<br data-start="3596" data-end="3599" /><strong data-start="3599" data-end="3613">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-ch69td-d237f48ce956fbde12405cc26392a472'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Quesedilla´s</h2>
-</div></section>
-<div  class='av-catalogue-container av-c9guxl-ace21d6a1b2791aaf2136face792802a  avia-builder-el-29  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-c4ziah-c9d14f15558c60fc5a2c7fce05fadc14'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Veggie</div><div class='av-catalogue-price'>229,-</div></div><div class="av-catalogue-content">
-Fylte quesadillas med mozzarella, blanding av bønner og kikerter, husets saus, rødløk, lime og koriander.<br data-start="950" data-end="953" /><strong data-start="953" data-end="967">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-c24b0h-fedb1fe66fc65a224da98ec1d4510578'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Polo loco</div><div class='av-catalogue-price'>249,-</div></div><div class="av-catalogue-content">
-Hakket kylling, mozzarella, salsa de la casa, syltet rødløk, rød pepper, lime og koriander.<br data-start="1113" data-end="1116" /><strong data-start="1116" data-end="1130">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-15z1k9-233fd45a545e59ca28191ab3800d25ca'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Cochinita de Pibil</div><div class='av-catalogue-price'>249,-</div></div><div class="av-catalogue-content">
-Pulled beef, salsa de la casa, syltet rødløk, rød pepper, mozzarella, lime og koriander.<br data-start="1281" data-end="1284" /><strong data-start="1284" data-end="1298">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-lwzcqr90-39c8600ffd8a7cd92dd6ec868ebb33c1'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Carnitas </div><div class='av-catalogue-price'>249,-</div></div><div class="av-catalogue-content">
-Pulled pork, salsa de la casa, mozzarella, ananas, hvitløk, rød pepper, lime og koriander.<br data-start="1441" data-end="1444" /><strong data-start="1444" data-end="1458">Allergener</strong>: Melk (2), gluten (5)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-bsxv6h-ecef41de0083eba1320ddea5adbe4f28'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Al pastor</div><div class='av-catalogue-price'>249,-</div></div><div class="av-catalogue-content">
-Marinert svinekjøtt med hvit løk, ananas, mozzarella, lime og koriander.<br data-start="1584" data-end="1587" /><strong data-start="1587" data-end="1601">Allergener</strong>: Melk (2), gluten (5)</p>
-<h4></h4>
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-a08fm1-5e508a4c65016ffeceb9244f14a0b415'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Husets spesialretter</h2>
-</div></section>
-<div  class='av-catalogue-container av-9v7nw9-644131274d3a34fda5dce0def50223dd  avia-builder-el-31  el_after_av_textblock  avia-builder-el-last '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-9mwlox-5aa2da69a29913811c76f77ef708475b'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Fajitas </div><div class='av-catalogue-price'>375,-</div></div><div class="av-catalogue-content">
-Kylling, chorizo, storfekjøtt, rød løk, paprika, guacamole, chipotle mayo, Salsa de la Casa, 3 tortillas<br data-start="4296" data-end="4299" /><strong data-start="4299" data-end="4313">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-9gep61-c23587d5dda6df35f59628f2da096a2c'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Nachos Cochinita de Pibil</div><div class='av-catalogue-price'>269,-</div></div><div class="av-catalogue-content">
-Pulled beef, Salsa de la Casa, cheddarost, syltet rødløk, rød paprika, mozzarella, guacamole, lime og koriander.<br data-start="4479" data-end="4482" /><strong data-start="4482" data-end="4496">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-9gep61-31-ee48f56c28d15f9f44e166eb80dc7877'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Nachos Carnitas</div><div class='av-catalogue-price'>259,-</div></div><div class="av-catalogue-content">
-Pulled pork med Salsa de la Casa,<br />
-cheddarost, mozzarella, hvitløk,<br />
-ananas, rød paprika, guacamole,<br />
-lime og koriander.<br data-start="4654" data-end="4657" /><strong data-start="4657" data-end="4671">Allergener</strong>: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mja15m5q-9c4958660687260949117dae3c175f67'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Enchiladas (Chorizo / Vegetar)</div><div class='av-catalogue-price'>275,-</div></div><div class="av-catalogue-content">
-Ovnsbakte maislefser fylt med<br />
-krydret chorizo eller grønnsaksblanding, toppet med ost og salsa .<br />
-Serveres med guacamole, grillet<br />
-paprika og løk, og salsa (mild eller<br />
-spicy).</p>
-<p><strong>Allergener</strong>: Melk (2)<br />
-(Glutenfri – inneholder ikke hvete<br />
-når laget med 100 % maistortilla)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mja172z7-ffc895df67256972926355db4a13041f'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Entrecôte</div><div class='av-catalogue-price'>399,-</div></div><div class="av-catalogue-content">
-Grillet entrecôte servert<br />
-meksikansk style med:<br />
-Velg mellom mild eller spicy salsa,<br />
-chipotle mayo, grillet paprika og løk,<br />
-guacamole og 3 maistortilla.<br />
-<strong>Allergener</strong>: Egg, melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mja17uu3-b8f19af7526199c8a5ba1fbf921822f4'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Entrecôte Taco</div><div class='av-catalogue-price'>295,-</div></div><div class="av-catalogue-content">
-Saftig entrecote servert i myke tortillas,<br />
-toppet med friske grønnsaker,<br />
-guacamole, husets salsa og vår<br />
-signatursaus. En fyldig og smakrik<br />
-taco-opplevelse.</p>
-<p><strong>Allergener</strong>: melk (2)<br />
-</div></div></div></li>
-</ul></div></div><div class='flex_column av-b1nrt-c4bf575fd078812e48b247b6d3092154 av_one_full  avia-builder-el-32  el_after_av_one_half  el_before_av_hr  first flex_column_div column-top-margin'     ><section  id="Starter"  class='av_textblock_section av-mbupjgya-31ce06e79f07c7811871d3155d9555cb'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h1><strong>Dessert</strong></h1>
-</div></section>
-<div  class='av-catalogue-container av-errpd-06e9d312dcdaefc032ce8e612e777387  avia-builder-el-34  el_after_av_textblock  avia-builder-el-last '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-9kwup-95cb682ee9a88506396934f0d56a2e46'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Churros med Nutella</div><div class='av-catalogue-price'>119,-</div></div><div class="av-catalogue-content">
-Sprø, nyfriterte churros servert med varm<br />
-Nutella. En søt avslutning med crunch!<br />
-<strong>Allergener</strong>: Egg, melk (2) gluten (5) hasselnøtter<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mja1cqi9-f9fc1047adfe46e0b7f667c3e823d680'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Crema Catalana</div><div class='av-catalogue-price'>149,-</div></div><div class="av-catalogue-content">
-Spansk kremdessert med karamellisert<br />
-sukkerlokk og smak av appelsin og<br />
-kanel – vår versjon av crème brûlée.<br />
-<strong>Allergener</strong>: Egg, melk(2)<br />
-</div></div></div></li>
-</ul></div></div><div  class='hr av-m5p8z6e8-353c8eb50bc0efe5774720be26cce20b hr-invisible  avia-builder-el-35  el_after_av_one_full  el_before_av_textblock '><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
-<section  id="Starter"  class='av_textblock_section av-h8dx0p-246f518c8050f85963481c83867de0d4'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h1>Drikke</h1>
-</div></section>
-<div class='flex_column av-4vg7o9-abeba5162a5fdfc65f18220981e3a2a1 av_one_half  avia-builder-el-37  el_after_av_textblock  el_before_av_one_half  first flex_column_div column-top-margin'     ><section  class='av_textblock_section av-m5p97dqk-39ec322713187a0f328351671d771459'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2 data-start="5758" data-end="5782"><strong data-start="5764" data-end="5782">Vin/Prosecco</strong></h2>
-</div></section>
-<div  class='av-catalogue-container av-4k13ip-07837a65692faf31d0cff95c76b05623  avia-builder-el-39  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-4acpup-19e9744cd2ff2761a94c7f9ddd646e3a'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Rødvin / Hvitvin</div><div class='av-catalogue-price'>135 - 599</div></div><div class="av-catalogue-content">
-Glass 135 / Flaske 599<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-4acpup-3-0a1934316c7ca8ae649e6f422da266ac'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Rosé wine</div><div class='av-catalogue-price'>135 - 599</div></div><div class="av-catalogue-content">
-Glass 135 /Flaske 599<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-4acpup-2-581181cb5fd16aebb209b71cc224bf51'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Chardonnay</div><div class='av-catalogue-price'>145- 685</div></div><div class="av-catalogue-content">
-Glass 145 / Flaske 685<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-4acpup-1-e672cad7e0a4f27204d254ce199c84fc'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Prosecco</div><div class='av-catalogue-price'>135 - 599</div></div><div class="av-catalogue-content">
-Glass 135 / Flaske 599<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-mbun22gd-b860c99163975708070d67616d9c85d9'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Sangria</h2>
-</div></section>
-<div  class='av-catalogue-container av-mbun33ii-455789148cad19be858c7ca369cda930  avia-builder-el-41  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-mbun2pkm-145f4c9e1111cce225dd7af062741234'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Rød Sangria</div><div class='av-catalogue-price'>1L – 549 / Glass – 160</div></div><div class="av-catalogue-content">
-Vodka, vermouth, Triple Sec,<br />
-rødvin, appelsinjuice og frukt<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mbun32cg-6f5c7341881c56c7cba70d895f769232'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>White Sangria</div><div class='av-catalogue-price'>1L – 549 / Glass – 160</div></div><div class="av-catalogue-content">
-Vodka, rom, gin, Triple Sec,<br />
-lime, sukker og prosecco.<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-4nnv2x-9f40549c8f7cbd3e62f1c8b01fc88104'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>ØL</h2>
-</div></section>
-<div  class='av-catalogue-container av-nqtc1-56788412d6b0aaf6aaee33f4aa0a5dad  avia-builder-el-43  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-gcobd-87945d3851073eae05f100cb0b876336'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>7 Fjell Pilsner / 0.4 - 0.5 </div><div class='av-catalogue-price'>109,- / 135,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-az4q1-2b88fc0d56dc3757a94a1500704d3045'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Paradis Tropical IPA </div><div class='av-catalogue-price'>115,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-az4q1-1-7a9d5723710073d55259cc2759c4bce9'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Bergen Blanc</div><div class='av-catalogue-price'>115,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5jkcm-709b384f676391469ada7407c78e20d8'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Småtøs</div><div class='av-catalogue-price'>110,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5khmm-b7537934b2e053186ee867c74264fc87'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Ginger Ninja Berries</div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5kxna-d97b5fc2dc9b7e293d28b142ada1b93d'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Ginger Ninja</div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5lp3u-70ed0dbfdee34503c42daff820f83cf3'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Juan Moore</div><div class='av-catalogue-price'>120,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5m50i-b7bf8e5814126a5904f50e01b85a980f'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Bulmers original</div><div class='av-catalogue-price'>135,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5mmz7-80020bce1e3ffb5773d368bdee16a8eb'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Bulmers red berries</div><div class='av-catalogue-price'>135,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5njni-121594a47be92d4be8a931f3fd7c0ae3'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Bucket Deal Juan Moore</div><div class='av-catalogue-price'>• 4 flasker – 328 • 6 flasker – 492 • 8 flasker – 656</div></div><div class="av-catalogue-content">
-• 4 flasker – 328<br />
-• 6 flasker – 492<br />
-• 8 flasker – 656<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-mja5qwbd-f83b16f86850b6764c68253d487fd507'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Meksikansk øl</h2>
-</div></section>
-<div  class='av-catalogue-container av-mja5u3n1-1b42413ef8dd3779f3d8732ea12bbc92  avia-builder-el-45  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-mja5rksg-6c1d44756bcac1f54fa9c81b61114a37'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Corona </div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5rw9n-6989357bb4b002a0150818f667db2bfc'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>sol</div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5s6om-a0a9adb01f469f8151cb7a710849fa22'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Modelo</div><div class='av-catalogue-price'>140,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5sf6g-68c67b400de19c3a635a9f3a5e7db9c7'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Pacífico </div><div class='av-catalogue-price'>140,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5sryn-db042e5415b80cd0f891f8e094067b23'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Juan Moore</div><div class='av-catalogue-price'>120,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5txba-b7a4caf591eed5a06f19eb2da2d8412e'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Michelada</div><div class='av-catalogue-price'>145,- /160, -/130</div></div><div class="av-catalogue-content">
-Med Sol – 145<br />
-Med Modelo – 160<br />
-Med Juan Moore – 130<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-mbun28pd-506dda18188cc7e62e002ce7f31d37f1'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Drinker</h2>
-</div></section>
-<div  class='av-catalogue-container av-mbun1pl9-7c0c39d4f2b98b6ded8fe3543a181d79  avia-builder-el-47  el_after_av_textblock  el_before_av_hr '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-mbun0ukw-145942bfa2e1b977119b6cef1167e039'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Vodka Red Bull</div><div class='av-catalogue-price'>155,-</div></div><div class="av-catalogue-content">
-Vodka og Red Bull.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mbun0zjr-645038da108d179304bbe2be4462c824'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Cuba Libre</div><div class='av-catalogue-price'>155,-</div></div><div class="av-catalogue-content">
-Svart rom, lime og Coca-Cola<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mbun1a98-cbf30aafb3effdfbfe697d536a43e2ac'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Gin & Tonic</div><div class='av-catalogue-price'>155,-</div></div><div class="av-catalogue-content">
-Gin, lime og Tonic Fever Tree.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-mbun1igj-1f498c35f4f51ab059ae2bb88850568a'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Aperol Spritz</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Aperol, prosecco, appelsin og brus.<br />
-</div></div></div></li>
-</ul></div>
-<div  class='hr av-6l7kkh-ac38fc440f10b74b2bb4541bf89bea8a hr-invisible  avia-builder-el-48  el_after_av_catalogue  avia-builder-el-last  av-small-hide av-mini-hide'><span class='hr-inner '><span class="hr-inner-style"></span></span></div></div><div class='flex_column av-9ceht5-37ef34b72764aefb20460563698cd6cf av_one_half  avia-builder-el-49  el_after_av_one_half  avia-builder-el-last  flex_column_div column-top-margin'     ><section  class='av_textblock_section av-x3wd5-5fba700f577a971cfa266402888de1c6'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>COCKTAILS</h2>
-</div></section>
-<div  class='av-catalogue-container av-906t3t-0e12b4e946f3fff7efe5f77311917610  avia-builder-el-51  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-8woozd-cb189e06ddf76ab132602cb48ca364c6'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Margarita/Mezcalita</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Tequila eller Mezcal, lime, Triple Sec og salt<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-8-996627740840d7026afb85e5f1b35152'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Spicy Mango Margarita</div><div class='av-catalogue-price'>170,-</div></div><div class="av-catalogue-content">
-Tequila, lime, Triple Sec, mango og Tabasco.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-7-c7cd6701b2a8ad80a36495b8e0525103'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Caipirinha </div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Cachaça, lime og sukker.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-6-0bfd4365aa643db7aeccd31eda49ef10'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Mojito (Mango, Jordbær, Bringebær, Pasjonsfrukt) </div><div class='av-catalogue-price'>165,-</div></div><div class="av-catalogue-content">
-Rom, lime, sukker, mynte, kullsyre.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-5-d2387c043f86706b0c56a9e80fa211a9'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Daiquiri</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Rom, lime, sukker.<br />
-Smakstilsatt: Mango, jordbær<br />
-eller pasjonsfrukt.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-4-d73806a8ff601d108a6d7f698562c831'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Moscow Mule</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Vodka, lime, sukker, ingefærøl og mynte<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-3-87246710372a3e68c7f4782702991e0a'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Chili Martini</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Vodka, lime, sukker, jordbær,<br />
-Chambord og habanero.<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-2-c3c0eea4be6dbedd9fedbd3b63615cf3'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Espresso Martini</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Vodka, sukker, Kahlua og espresso.<br />
-Allergener: Melk (2)<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-8woozd-1-72f7278121eff6735117d0f8af388ab2'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Porn Star Martini</div><div class='av-catalogue-price'>160,-</div></div><div class="av-catalogue-content">
-Vodka, Passoã, pasjonsfrukt,<br />
-lime, sukker, prosecco.<br />
-</div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-m5p92pxs-17dd2685a6bf79c3d6c73dc352b29907'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Alkoholfritt</h2>
-</div></section>
-<div  class='av-catalogue-container av-m5p92ch8-d41417e0a658b9249e5aa03b86e73097  avia-builder-el-53  el_after_av_textblock  el_before_av_textblock '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-m5p92bb4-0f3c621987f641c663212139373de2e2'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Virgin Mojito</div><div class='av-catalogue-price'>105,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-4-87c930ec5f83e3f99a2efcf388c54547'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Haven</div><div class='av-catalogue-price'>100,-</div></div><div class="av-catalogue-content">
-&#8211; Strawberry<br />
-&#8211; Mango<br />
-&#8211; Maracuyánor<br />
-</div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-3-f12a5766c517c293493e42d60adb35ad'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>San Miguel 0.0</div><div class='av-catalogue-price'>85,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-2-09dff2c188d79a535d3ac2140ac71a50'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Ginger Beer 0.0 </div><div class='av-catalogue-price'>85,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-1-1486457e12f9ac31a7a273f74ebc63d3'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Coca-Cola</div><div class='av-catalogue-price'>60,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-1-5-c6f270e907a8aae45dcbdb9cc0a37584'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Coca-Cola Zero</div><div class='av-catalogue-price'>60,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-1-4-852de4dcc99a686dc6ef43287328a76c'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Sprite </div><div class='av-catalogue-price'>60,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-1-3-bb7d92dddb1661ef99efe6bab2f27659'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Fanta</div><div class='av-catalogue-price'>60,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-1-2-2434086193a84d8642502c6d5d93866d'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'> Eplemost</div><div class='av-catalogue-price'>60,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-m5p92bb4-1-1-6c34815adf71f58636b2db864c48ad91'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Red Bull </div><div class='av-catalogue-price'>60,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-</ul></div>
-<section  class='av_textblock_section av-ljvi6zde-4113a036a5e39c5f3e5e50dac13816ea'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Kaffe</h2>
-</div></section>
-<div  class='av-catalogue-container av-2jight-d06ce3e45b10ece53ed0d73762a178ec  avia-builder-el-55  el_after_av_textblock  el_before_av_hr '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-2fuvm1-21029d7f5cf5f98dafadee20caa74d10'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Kaffe </div><div class='av-catalogue-price'>50,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-1niwh5-04e6d003dabc88ad0c7f420daed69c73'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Kaffe med melk</div><div class='av-catalogue-price'>55,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-1y33z5-afb4e9a0ef41993d891757d8c4fdae0b'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Americano</div><div class='av-catalogue-price'>50,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-2636ch-f5f8e564ff26c9c3d4641a6099ae2b02'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Espresso </div><div class='av-catalogue-price'>30,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-224h01-555ef472e0f2598ab3691b257a32d3c2'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Dobbel Espresso</div><div class='av-catalogue-price'>45,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-1eq78p-998a79f3dbd8710d87251c8c9e5d628a'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Cappuccino</div><div class='av-catalogue-price'>55,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-1niwh5-1-3ba4896e6000d72a5c3783b6354a9d92'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Caffè Latte</div><div class='av-catalogue-price'>55,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-</ul></div>
-<div  class='hr av-ar3dd-a3e68bb42ee90003c11b74d634e29fab hr-invisible  avia-builder-el-56  el_after_av_catalogue  el_before_av_textblock  av-small-hide av-mini-hide'><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
-<section  class='av_textblock_section av-mja5vok2-950517623ae183981c4814b7bae7d160'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><h2>Tequila / Mezcal</h2>
-</div></section>
-<div  class='av-catalogue-container av-mja5vsr3-7f46aea55f59103c906773c105ffc456  avia-builder-el-58  el_after_av_textblock  avia-builder-el-last '><ul class='av-catalogue-list'>
-<li><div class='av-catalogue-item av-mja5xrsr-2bf29a0d04fbc15c5b18f722b71b0e41'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Mezcal Amigos </div><div class='av-catalogue-price'>140,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5yb29-bbc45e40b7858c1076b2335f5a13b09c'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Mezcal Corralejo</div><div class='av-catalogue-price'>135,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5yor2-84e6229e437c2ae6580a54ca672c6043'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Mezcal Corralejo Anejo</div><div class='av-catalogue-price'>135,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-b5a4282057466212f4f6c894c9f028fa'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Mezcal 400 Conejos </div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-8-c7c21a9d46abefea12f25fccba07454a'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Mezcal Gusano Rojo</div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-7-bfc6a75846270fb83af4622fafce508f'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Don Julio </div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-6-6dddf3cc5f382019908bcaf286aed101'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Don Julio Anejo</div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-5-20eb25fd78dc7a0f451c6923ab2ad7ad'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Patrón Silver </div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-4-c2a988c3cd25a3b46699b67a56eb1a59'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Patrón Anejo</div><div class='av-catalogue-price'>125,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-3-4a2c7487f9f91f47fab18d8250719b03'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Jose Cuervo </div><div class='av-catalogue-price'>110,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-2-f66c151b1b93a24e0abb6f744198d1ee'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Jose Cuervo Especial </div><div class='av-catalogue-price'>120,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-<li><div class='av-catalogue-item av-mja5z4ji-1-31d61478f2cc9360aa727b51352fed3e'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>Olmeca</div><div class='av-catalogue-price'>110,-</div></div><div class="av-catalogue-content"></div></div></div></li>
-</ul></div></div></div></div></div><!-- close content main div --></div></div><div id='gallerydiv'  class='avia-section av-l4zfmiqa-cfdcd201dbea6025ae2a0dc61f532683 main_color avia-section-default avia-no-border-styling  avia-builder-el-59  el_after_av_section  el_before_av_section  avia-bg-style-scroll container_wrap fullsize'  ><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
+<div class="menu-teaser-grid">
+<div class="menu-teaser-card"><img decoding="async" src="images/loaded-nachos.webp" alt="Nachos de la Casa" loading="lazy"><div class="menu-teaser-info"><h3>Nachos de la Casa</h3><span class="menu-teaser-price">139,-</span></div></div>
+<div class="menu-teaser-card"><img decoding="async" src="images/taco-hand.webp" alt="Al Pastor taco" loading="lazy"><div class="menu-teaser-info"><h3>Al Pastor</h3><span class="menu-teaser-price">265,-</span></div></div>
+<div class="menu-teaser-card"><img decoding="async" src="images/shrimp-tostada.webp" alt="Ceviche" loading="lazy"><div class="menu-teaser-info"><h3>Ceviche</h3><span class="menu-teaser-price">239,-</span></div></div>
+</div>
+<div class="avia-buttonrow-wrap avia-buttonrow-center" style="margin-top: clamp(28px, 4vw, 44px);">
+<a href="meny/" class="avia-button avia-icon_select-no avia-size-small avia-color-theme-color cta-primary"><span class="avia_iconbox_title">Se full meny</span></a>
+</div>
+</div></div></div></div></div><!-- close content main div --></div></div><div id='whyus' class='avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
+<div class='av-special-heading av-special-heading-h3 blockquote modern-quote modern-centered'><h3 class='av-special-heading-tag' itemprop="headline">HVORFOR LA TAQUERIA</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<div class='hr hr-invisible'><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
+<div class="whyus-grid">
+<div class="whyus-card"><svg class="whyus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c-3 3-5 6-5 9a5 5 0 0 0 10 0c0-3-2-6-5-9Z"/><path d="M12 8c-1.2 1.2-2 2.6-2 4"/></svg><h3>Autentiske oppskrifter</h3><p>Ekte meksikanske smaker &ndash; ikke Tex-Mex. Samme krydder og tilberedning som i Mexico.</p></div>
+<div class="whyus-card"><svg class="whyus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><h3>Ferskt hver dag</h3><p>Guacamole og salsa lages for hånd, samme dag som du spiser det.</p></div>
+<div class="whyus-card"><svg class="whyus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5 14.6 9h6.7l-5.4 4.1 2.1 6.6L12 15.8l-5.9 3.9 2.1-6.6L2.8 9h6.7Z" stroke-linejoin="round"/></svg><h3>Elsket i Bergen</h3><p>4,3 av 5 på Google &ndash; basert på over 750 anmeldelser fra ekte gjester.</p></div>
+<div class="whyus-card"><svg class="whyus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg><h3>Rask levering</h3><p>Bestill via Wolt og få maten rett hjem &ndash; eller kom innom og hent selv.</p></div>
+</div>
+</div></div></div></div></div>
+
+<div id='gallerydiv'  class='avia-section av-l4zfmiqa-cfdcd201dbea6025ae2a0dc61f532683 main_color avia-section-default avia-no-border-styling  avia-builder-el-59  el_after_av_section  el_before_av_section  avia-bg-style-scroll container_wrap fullsize'  ><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
 <div id='av-masonry-1' class='av-masonry av-l4vfl0t2-86f696fb9763a7dde54a12205f64c849 noHover av-flex-size av-large-gap av-hover-overlay- av-masonry-animation- av-masonry-col-4 av-caption-always av-caption-style- av-masonry-gallery av-medium-columns-overwrite av-medium-columns-2 av-small-columns-overwrite av-small-columns-2 av-mini-columns-overwrite av-mini-columns-1 '><div class="av-masonry-container isotope av-js-disabled"><div class='av-masonry-entry isotope-item av-masonry-item-no-image '></div><a href="images/D4_0112-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image _D4_0112-Enhanced-NR"  id='av-masonry-1-item-1012' data-av-masonry-item='1012' class='av-masonry-entry isotope-item post-1012 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="_D4_0112-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1012 avia-img-lazy-loading-not-1012"  src="images/D4_0112-Enhanced-NR-503x705.jpg" title="_D4_0112-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0112-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/D4_0068-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image _D4_0068-Enhanced-NR"  id='av-masonry-1-item-1011' data-av-masonry-item='1011' class='av-masonry-entry isotope-item post-1011 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="_D4_0068-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1011 avia-img-lazy-loading-not-1011"  src="images/D4_0068-Enhanced-NR-503x705.jpg" title="_D4_0068-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0068-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/D4_0078-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image _D4_0078-Enhanced-NR"  id='av-masonry-1-item-1010' data-av-masonry-item='1010' class='av-masonry-entry isotope-item post-1010 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="_D4_0078-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1010 avia-img-lazy-loading-not-1010"  src="images/D4_0078-Enhanced-NR-503x705.jpg" title="_D4_0078-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0078-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/D4_0086-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image _D4_0086-Enhanced-NR"  id='av-masonry-1-item-1008' data-av-masonry-item='1008' class='av-masonry-entry isotope-item post-1008 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="_D4_0086-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1008 avia-img-lazy-loading-not-1008"  src="images/D4_0086-Enhanced-NR-503x705.jpg" title="_D4_0086-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0086-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/1M1A3513-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image 1M1A3513-Enhanced-NR"  id='av-masonry-1-item-1007' data-av-masonry-item='1007' class='av-masonry-entry isotope-item post-1007 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="1M1A3513-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1007 avia-img-lazy-loading-not-1007"  src="images/1M1A3513-Enhanced-NR-503x705.jpg" title="1M1A3513-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3513-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/1M1A3554-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image 1M1A3554-Enhanced-NR"  id='av-masonry-1-item-1006' data-av-masonry-item='1006' class='av-masonry-entry isotope-item post-1006 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="1M1A3554-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1006 avia-img-lazy-loading-not-1006"  src="images/1M1A3554-Enhanced-NR-503x705.jpg" title="1M1A3554-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/1M1A3554-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/D4_0105-Enhanced-NR-735x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR.jpg 1462w" data-sizes="(max-width: 735px) 100vw, 735px"  aria-label="image _D4_0105-Enhanced-NR"  id='av-masonry-1-item-1015' data-av-masonry-item='1015' class='av-masonry-entry isotope-item post-1015 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="_D4_0105-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="503" height="705" class="wp-image-1015 avia-img-lazy-loading-not-1015"  src="images/D4_0105-Enhanced-NR-503x705.jpg" title="_D4_0105-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-503x705.jpg 503w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-735x1030.jpg 735w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-768x1076.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR-1071x1500.jpg 1071w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0105-Enhanced-NR.jpg 1462w" sizes="(max-width: 503px) 100vw, 503px" /></div></div></figure></a><!--end av-masonry entry--><a href="images/D4_0110-Enhanced-NR-736x1030.jpg" data-srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-736x1030.jpg 736w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-768x1075.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-1072x1500.jpg 1072w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-504x705.jpg 504w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR.jpg 1463w" data-sizes="(max-width: 736px) 100vw, 736px"  aria-label="image _D4_0110-Enhanced-NR"  id='av-masonry-1-item-1016' data-av-masonry-item='1016' class='av-masonry-entry isotope-item post-1016 attachment type-attachment status-inherit hentry  av-masonry-item-with-image' title="_D4_0110-Enhanced-NR" alt=""    itemprop="thumbnailUrl" ><div class='av-inner-masonry-sizer'></div><figure class='av-inner-masonry main_color'><div class="av-masonry-outerimage-container"><div class='av-masonry-image-container'   ><img decoding="async" width="504" height="705" class="wp-image-1016 avia-img-lazy-loading-not-1016"  src="images/D4_0110-Enhanced-NR-504x705.jpg" title="_D4_0110-Enhanced-NR" alt="" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-504x705.jpg 504w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-214x300.jpg 214w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-736x1030.jpg 736w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-768x1075.jpg 768w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-1097x1536.jpg 1097w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR-1072x1500.jpg 1072w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0110-Enhanced-NR.jpg 1463w" sizes="(max-width: 504px) 100vw, 504px" /></div></div></figure></a><!--end av-masonry entry--></div></div>
 </p>
-</div></div></div><!-- close content main div --></div></div><div id='aboutus'  class='avia-section av-jkwotzct-41-c92847c697c047ee5ae94e5b033b7458 main_color avia-section-default avia-no-border-styling  avia-builder-el-61  el_after_av_section  el_before_av_section  avia-bg-style-scroll av-minimum-height av-minimum-height-75  container_wrap fullsize'   data-av_minimum_height_pc='75'><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
+</div></div></div><!-- close content main div --></div></div><div id='cateringteaser' class='avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
+<div class="catering-teaser-row">
+<div class="catering-teaser-photo"><img decoding="async" src="images/spread-2.webp" alt="Cateringoppsett fra La Taqueria med tacos, nachos og guacamole" loading="lazy"></div>
+<div class="catering-teaser-text">
+<div class='av-special-heading av-special-heading-h3 blockquote modern-quote'><h3 class='av-special-heading-tag' itemprop="headline">PLANLEGGER DU ET ARRANGEMENT?</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<p>Bedriftsfest, bursdag eller bryllup &ndash; vi setter sammen tacobokser og delemenyer tilpasset ditt selskap. Hentes eller leveres rett til døra.</p>
+<div class='avia-buttonrow-wrap'>
+<a href="catering/" class='avia-button avia-icon_select-no avia-size-small avia-color-theme-color cta-primary'><span class='avia_iconbox_title'>Se cateringmeny</span></a>
+</div>
+</div>
+</div>
+</div></div></div></div></div>
+
+<div id='aboutus'  class='avia-section av-jkwotzct-41-c92847c697c047ee5ae94e5b033b7458 main_color avia-section-default avia-no-border-styling  avia-builder-el-61  el_after_av_section  el_before_av_section  avia-bg-style-scroll av-minimum-height av-minimum-height-75  container_wrap fullsize'   data-av_minimum_height_pc='75'><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
 <div class='flex_column av-uyrcx-4ed00e5fac6ee8d47066219755c8fa45 av_one_full  avia-builder-el-62  el_before_av_one_full  avia-builder-el-first  first no_margin flex_column_div av-hide-on-mobile '     id="divider"  ><div  class='avia-image-container av-2l8o1-7f3f50f7d6fb5686578d06ae4c6d1409 av-styling- avia-align-center  avia-builder-el-63  avia-builder-el-no-sibling '   itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" ><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" class='wp-image-752 avia-img-lazy-loading-not-752 avia_image ' src="images/divider.png" alt='' title=''  height="70" width="3722"  itemprop="thumbnailUrl"  /></div></div></div></div><div class='flex_column av-k8fy9-98be75e2446a30fe387becd9a644cbb9 av_one_full  avia-builder-el-64  el_after_av_one_full  el_before_av_one_half  first no_margin flex_column_div column-top-margin'     id="divider_mobile"  ><div  class='avia-image-container av-1hswx-bd0ec636bcd46387b3ceb8975e4c6cff av-styling- avia-align-center  avia-builder-el-65  avia-builder-el-no-sibling '   itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" ><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" class='wp-image-791 avia-img-lazy-loading-not-791 avia_image ' src="images/divider-mobile.png" alt='' title=''  height="70" width="500"  itemprop="thumbnailUrl"  /></div></div></div></div><div class='flex_column av-r1nvt-ae726854fdff2e3bbcd325c1550ef2c7 av_one_half  avia-builder-el-66  el_after_av_one_full  el_before_av_one_half  first flex_column_div column-top-margin'     ><div  class='av-special-heading av-usb3t-d662f39fc3e08d3bdd0b31a1ae65773d av-special-heading-h3 blockquote modern-quote  avia-builder-el-67  el_before_av_hr  avia-builder-el-first  av-inherit-size'><h3 class='av-special-heading-tag'  itemprop="headline"  >Autentisk meksikansk mat på La Taqueria i Bergen</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
 <div  class='hr av-swgz5-93a81b1add03269ad5a1311d940782d7 hr-custom  avia-builder-el-68  el_after_av_heading  el_before_av_textblock  hr-left hr-icon-no'><span class='hr-inner inner-border-av-border-thin'><span class="hr-inner-style"></span></span></div>
 <section  class='av_textblock_section av-l4x2szbm-0ff0b006822d54f06a7b2999641210d1'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock'  itemprop="text" ><p><span style="color: #ffffff;">Velkommen til La Taqueria, en ekte meksikansk restaurant i Bergen! Vi serverer utsøkte meksikanske retter og er stolte av å gi deg en smakebit av Mexico her i byen.</span></p>
@@ -680,7 +453,22 @@ lime, sukker, prosecco.<br />
 <section  class='av_textblock_section av-m5v0xkor-1ace9abfe8241be91ddf06a69bb5366c'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock av_inherit_color'  itemprop="text" ><p>Opplev vår fantastiske taco-buffé hos La Taqueria, nå tilgjengelig fra mandag til torsdag for kun 349,- per person. Nyt et bredt utvalg av deilige taco-varianter og spis så mye du vil i hele 2 timer! Dette er den perfekte muligheten til å samle venner eller familie for en smakfull opplevelse. Kom og nyt en autentisk taco-fest hos oss!</p>
 </div></section></div><div class='flex_column av-h2adt-d1daea0e1825204df11ac952b7612355 av_one_half  avia-builder-el-82  el_after_av_one_half  avia-builder-el-last  flex_column_div column-top-margin'     ><div  class='avia-image-container av-azrvd-4074c67e92b9d98cbc3435020f4420bd av-styling- avia-align-center  avia-builder-el-83  avia-builder-el-no-sibling '   itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" ><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" class='wp-image-1002 avia-img-lazy-loading-not-1002 avia_image ' src="images/D4_0263-Enhanced-NR-845x684.jpg" alt='' title='_D4_0263-Enhanced-NR'  height="684" width="845"  itemprop="thumbnailUrl" srcset="https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0263-Enhanced-NR-845x684.jpg 845w, https://www-static.lataqueria.no/wp-content/uploads/2025/12/D4_0263-Enhanced-NR-495x400.jpg 495w" sizes="(max-width: 845px) 100vw, 845px" /></div></div></div></div>
 
-</div></div></div><!-- close content main div --></div></div><div id='takeaway'  class='avia-section av-vxyc1-516cb2f3ea1be38f93466402ac8a629d main_color avia-section-huge avia-no-border-styling  avia-builder-el-84  el_after_av_section  el_before_av_section  avia-full-stretch avia-bg-style-fixed av-section-color-overlay-active av-minimum-height av-minimum-height-50  container_wrap fullsize'  data-section-bg-repeat='stretch' data-av_minimum_height_pc='50'><div class="av-section-color-overlay-wrap"><div class="av-section-color-overlay"></div><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
+</div></div></div><!-- close content main div --></div></div><div id='reviews' class='avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
+<div class="reviews-box">
+<div class="reviews-stars" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.6 9h6.7l-5.4 4.1 2.1 6.6L12 15.8l-5.9 3.9 2.1-6.6L2.8 9h6.7Z"/></svg>
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.6 9h6.7l-5.4 4.1 2.1 6.6L12 15.8l-5.9 3.9 2.1-6.6L2.8 9h6.7Z"/></svg>
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.6 9h6.7l-5.4 4.1 2.1 6.6L12 15.8l-5.9 3.9 2.1-6.6L2.8 9h6.7Z"/></svg>
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 14.6 9h6.7l-5.4 4.1 2.1 6.6L12 15.8l-5.9 3.9 2.1-6.6L2.8 9h6.7Z"/></svg>
+<svg viewBox="0 0 24 24" fill="currentColor" class="reviews-star-partial"><path d="M12 2.5 14.6 9h6.7l-5.4 4.1 2.1 6.6L12 15.8l-5.9 3.9 2.1-6.6L2.8 9h6.7Z"/></svg>
+</div>
+<div class="reviews-score">4,3<span>/5 på Google</span></div>
+<p class="reviews-count">Over 750 anmeldelser fra ekte gjester</p>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=La%20Taqueria%20Engen%208%20Bergen" target="_blank" rel="noopener noreferrer" class='avia-button avia-icon_select-no avia-size-small avia-color-theme-color'><span class='avia_iconbox_title'>Se anmeldelser på Google</span></a>
+</div>
+</div></div></div></div></div>
+
+<div id='takeaway'  class='avia-section av-vxyc1-516cb2f3ea1be38f93466402ac8a629d main_color avia-section-huge avia-no-border-styling  avia-builder-el-84  el_after_av_section  el_before_av_section  avia-full-stretch avia-bg-style-fixed av-section-color-overlay-active av-minimum-height av-minimum-height-50  container_wrap fullsize'  data-section-bg-repeat='stretch' data-av_minimum_height_pc='50'><div class="av-section-color-overlay-wrap"><div class="av-section-color-overlay"></div><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
 <div  class='hr av-ply01-c8cdca3d37c465b84e9e958c5c5622a5 hr-invisible  avia-builder-el-85  el_before_av_heading  avia-builder-el-first '><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
 <div  class='av-special-heading av-1xbk1-24e1540320a652c03c463fc6e212cc82 av-special-heading-h3 custom-color-heading blockquote modern-quote modern-centered  avia-builder-el-86  el_after_av_hr  el_before_av_textblock  av-inherit-size'><h3 class='av-special-heading-tag'  itemprop="headline"  >BORDBESTILLING <span class='special_amp'>&amp;</span> TAKEAWAY</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
 <section  class='av_textblock_section av-d7mvd-ea85c5680c2356bc365438a3ea2ddcb3'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock av_inherit_color'  itemprop="text" ><section class="av_textblock_section av-9i6ty-183a789a824bec2ba5586e0809dae498">
@@ -697,7 +485,25 @@ lime, sukker, prosecco.<br />
 <a href="https://booking.gastroplanner.no/lataqueria/t" class="avia-button av-89o8h-b49ec30c484541a31e80bd70fa60da3b avia-icon_select-no avia-size-small avia-color-theme-color cta-primary" target="_blank" rel="noopener noreferrer"><span class='avia_iconbox_title' >Book bord</span></a>
 </div>
 
-</div></div></div><!-- close content main div --></div></div></div><div id='contact'  class='avia-section av-jkwotzct-36-5bd519b340ebc4de03985ecac3d80389 main_color avia-section-no-padding avia-no-border-styling  avia-builder-el-94  el_after_av_section  avia-builder-el-last  avia-bg-style-scroll container_wrap fullsize'  ><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
+</div></div></div><!-- close content main div --></div></div></div><div id='hoursmap' class='avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
+<div class="hoursmap-row">
+<div class="hoursmap-info">
+<div class='av-special-heading av-special-heading-h3 blockquote modern-quote'><h3 class='av-special-heading-tag' itemprop="headline">FINN OSS</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<p class="hoursmap-address">Engen 8, 5011 Bergen</p>
+<ul class="hoursmap-list">
+<li><span>Mandag &ndash; Torsdag</span><span>14:00 &ndash; 21:30</span></li>
+<li><span>Fredag &ndash; Lørdag</span><span>14:00 &ndash; 22:30</span></li>
+<li><span>Søndag</span><span>14:00 &ndash; 21:30</span></li>
+</ul>
+<div class='avia-buttonrow-wrap'>
+<a href="https://www.google.com/maps/dir/?api=1&amp;destination=60.39181%2C5.32081" target="_blank" rel="noopener noreferrer" class='avia-button avia-icon_select-no avia-size-small avia-color-theme-color cta-primary'><span class='avia_iconbox_title'>Få veibeskrivelse</span></a>
+</div>
+</div>
+<div class="hoursmap-map"><iframe src="https://maps.google.com/maps?q=Engen%208%2C%205011%20Bergen&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kart til La Taqueria, Engen 8, Bergen"></iframe></div>
+</div>
+</div></div></div></div></div>
+
+<div id='contact'  class='avia-section av-jkwotzct-36-5bd519b340ebc4de03985ecac3d80389 main_color avia-section-no-padding avia-no-border-styling  avia-builder-el-94  el_after_av_section  avia-builder-el-last  avia-bg-style-scroll container_wrap fullsize'  ><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
 <div class='flex_column av-qwywh-be46b7205350eb60068e6a97ac1b7f2d av_one_full  avia-builder-el-90  el_before_av_one_full  avia-builder-el-first  first no_margin flex_column_div av-hide-on-mobile '     id="divider"  ><div  class='avia-image-container av-iwaxd-d5fcdb117e5be6def30fca3f657e1c09 av-styling- avia-align-center  avia-builder-el-91  avia-builder-el-no-sibling '   itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" ><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" class='wp-image-752 avia-img-lazy-loading-not-752 avia_image ' src="images/divider.png" alt='' title=''  height="70" width="3722"  itemprop="thumbnailUrl"  /></div></div></div></div><div class='flex_column av-h8rep-29c41d2f0ac1aeb3d6a2b0dc6179f44d av_one_full  avia-builder-el-92  el_after_av_one_full  avia-builder-el-last  first no_margin flex_column_div column-top-margin'     id="divider_mobile"  ><div  class='avia-image-container av-bsy0x-98cc6b12f156d7834f8d5afb0a152611 av-styling- avia-align-center  avia-builder-el-93  avia-builder-el-no-sibling '   itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" ><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" class='wp-image-791 avia-img-lazy-loading-not-791 avia_image ' src="images/divider-mobile.png" alt='' title=''  height="70" width="500"  itemprop="thumbnailUrl"  /></div></div></div></div>
 <div class='flex_column_table av-2qmgz-29-4998cdf4b40bfd6dc3b3e55981c6e434 sc-av_one_third av-equal-height-column-flextable'><div class='flex_column av-2qmgz-29-4998cdf4b40bfd6dc3b3e55981c6e434 av_one_third  avia-builder-el-95  el_before_av_one_third  avia-builder-el-first  first no_margin flex_column_table_cell av-equal-height-column av-align-middle av-zero-column-padding avia-full-contain '     ><div  class='avia-image-container av-l4wd3618-be2a4a1fada6a62621fbebbcb7ef0f2f av-styling- avia-align-center  avia-builder-el-96  avia-builder-el-no-sibling '   itemprop="image" itemscope="itemscope" itemtype="https://schema.org/ImageObject" ><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" class='wp-image-623 avia-img-lazy-loading-not-623 avia_image ' src="images/hero-1.png" alt='' title=''  height="230" width="340"  itemprop="thumbnailUrl"  /></div></div></div></div><div class='flex_column av-l4wd4y3z-fbdcb6d008bd33754e15fab0f8c6f627 av_one_third  avia-builder-el-97  el_after_av_one_third  el_before_av_one_third  no_margin flex_column_table_cell av-equal-height-column av-align-middle av-zero-column-padding avia-full-contain '     ><section  id="address_footer"  class='av_textblock_section av-l4wd45is-9d3d06dafa74979e11a9e7a04553fb7d'  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock av_inherit_color'  itemprop="text" ><h2 style="text-align: center;"><span style="color: #ffefb4;">Adresse</span></h2>
 <p style="text-align: center;"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=60.39181%2C5.32081"><span style="color: #47a391;">Engen 8 5011 Bergen, Norway</span></a></p>
