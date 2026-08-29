@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB" class="html_stretched responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky_disabled html_header_shrinking_disabled html_header_transparency html_mobile_menu_tablet html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_minimal_header html_minimal_header_shadow html_burger_menu html_av-overlay-full html_av-submenu-noclone html_entry_id_241 av-cookies-no-cookie-consent av-default-lightbox av-no-preview html_burger_menu_active">
+<html lang="en-GB" class="html_stretched responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking_disabled html_mobile_menu_tablet html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_minimal_header html_minimal_header_shadow html_burger_menu html_av-overlay-full html_av-submenu-noclone html_entry_id_241 av-cookies-no-cookie-consent av-default-lightbox av-no-preview html_burger_menu_active">
 
 <!-- Mirrored from www.lataqueria.no/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Aug 2026 09:14:08 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -350,6 +350,36 @@ PLAu:7
    text-color change, so the dark-on-dark text goes nearly unreadable. */
 #top .av-catalogue-list li:hover { background-color: transparent !important; }
 
+/* --- FIXED HEADER CTA (desktop) ---------------------------------
+   The header is now sticky (av_header_sticky), staying visible at
+   every scroll position. Enfold's own CSS only makes #header
+   position:fixed at 990px+ (position:relative below that in two of
+   its own media queries) - matching that breakpoint here so the
+   button never appears in a header that isn't actually fixed. Below
+   990px the hero CTA row (Ring oss / Send e-post) covers mobile/tablet. */
+#header-cta-btn { display: none; }
+@media (min-width: 990px) {
+	#header-cta-btn {
+		display: flex !important;
+		align-items: center !important;
+		position: absolute !important;
+		top: 50% !important;
+		right: 70px !important;
+		transform: translateY(-50%) !important;
+		height: auto !important;
+		min-height: 44px !important;
+		line-height: normal !important;
+		background-color: #47a391 !important;
+		color: #000 !important;
+		font-weight: 600 !important;
+		font-size: 15px !important;
+		padding: 10px 20px !important;
+		border-radius: 4px !important;
+		text-decoration: none !important;
+		white-space: nowrap !important;
+	}
+}
+
 /* --- PRIMARY CTA: one filled action per button row, rest stay outline ---
    Three buttons in a row rendered visually identical - nothing told the
    eye which action to take first. Phone is fastest for a catering order. */
@@ -373,7 +403,7 @@ PLAu:7
 			<div id='wrap_all'>
 
 	
-<header id='header' class='all_colors header_color dark_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky_disabled av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_tablet av_header_transparency av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_minimal_header_shadow av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
+<header id='header' class='all_colors header_color dark_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_minimal_header_shadow av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
 
 		<div  id='header_main' class='container_wrap container_wrap_logo'>
 
@@ -393,7 +423,7 @@ PLAu:7
 							</span>
 							<span class="avia_hidden_link_text">Menu</span>
 						</a>
-	        		   </li></ul></div></nav></div> </div> 
+	        		   </li></ul></div></nav><a href='https://booking.gastroplanner.no/lataqueria/t' id='header-cta-btn' target='_blank' rel='noopener noreferrer'>Book bord</a></div> </div> 
 		<!-- end container_wrap-->
 		</div>
 		<div class='header_bg'></div>
