@@ -185,9 +185,51 @@ PLAu:7
 	background-color: #FBF7EE !important;
 	background-image: none !important;
 }
-#av_section_intro { padding: clamp(48px, 7vw, 90px) 0 !important; }
-#cateringmeny     { padding: clamp(48px, 7vw, 90px) 0 !important; }
-#galleri          { padding: clamp(48px, 7vw, 90px) 0 clamp(56px, 8vw, 100px) !important; }
+/* Sections don't always butt up perfectly, and the theme's dark #main was
+   showing through the seams as a grey band. The dark sections paint their
+   own background over this, so only the gaps are affected. */
+#main, #wrap_all { background-color: #FBF7EE !important; }
+/* Section rhythm. The theme stacks three separate gaps - section padding,
+   an extra .container padding from avia-section-*, and a 50px top margin on
+   every column - which left the intro 767px tall for 138px of text. These
+   collapse that to a single controlled value per section. */
+#av_section_intro { padding: clamp(44px, 5vw, 68px) 0 !important; }
+#cateringmeny     { padding: clamp(44px, 5vw, 68px) 0 !important; }
+#galleri          { padding: clamp(44px, 5vw, 68px) 0 clamp(52px, 6vw, 80px) !important; }
+#av_section_intro > .container,
+#cateringmeny > .container,
+#galleri > .container { padding-top: 0 !important; padding-bottom: 0 !important; }
+#av_section_intro .flex_column,
+#cateringmeny .flex_column,
+#galleri .flex_column { margin-top: 0 !important; }
+/* The theme also puts a 50px top margin on every heading wrapper, which
+   lands on top of the section padding and doubled the gap between blocks. */
+#av_section_intro .av-special-heading,
+#cateringmeny .av-special-heading,
+#galleri .av-special-heading { margin-top: 0 !important; }
+/* Invisible spacer rules the theme renders between blocks */
+#cateringmeny .hr-invisible, #galleri .hr-invisible { margin: 18px 0 !important; height: auto !important; }
+
+/* Intro: put the text and the photo on one centred row instead of letting
+   the short text float at the top of a much taller image column. */
+#av_section_intro .entry-content-wrapper {
+	display: flex !important;
+	align-items: center !important;
+	gap: clamp(28px, 4vw, 56px) !important;
+	flex-wrap: wrap !important;
+}
+#av_section_intro .flex_column {
+	flex: 1 1 320px !important;
+	width: auto !important;
+	margin: 0 !important;
+	float: none !important;
+}
+#av_section_intro .avia_textblock p {
+	font-size: clamp(18px, 1.5vw, 21px) !important;
+	line-height: 1.65 !important;
+	max-width: 46ch;
+}
+#av_section_intro .avia_textblock p + p { margin-top: 1em !important; }
 
 /* Section headings rendered at 13px desktop / 7.8px mobile: the theme's
    .av-inherit-size makes the tag inherit a 13px wrapper, and the child
@@ -213,10 +255,16 @@ PLAu:7
 #cateringmeny > .container p, #cateringmeny > .container span {
 	color: #4a4a4a !important;
 }
-.av-catalogue-title   { color: #2a2a2a !important; font-size: 20px !important; }
-.av-catalogue-price   { color: #1F6B5C !important; font-size: 20px !important; }
-.av-catalogue-content { color: #4a4a4a !important; line-height: 1.6 !important; }
-.av-catalogue-list li { border-bottom-color: rgba(31,107,92,.35) !important; padding: 22px 0 !important; }
+/* Menu list: at full 1210px width the dish name and its price sat at
+   opposite ends of the screen. A centred measure keeps them related and
+   puts the description inside a readable line length. */
+#cateringmeny .av-catalogue-container { max-width: 820px; margin-inline: auto !important; }
+#cateringmeny .av-catalogue-content   { max-width: 62ch; }
+.av-catalogue-title   { color: #2a2a2a !important; font-size: 21px !important; }
+.av-catalogue-price   { color: #1F6B5C !important; font-size: 21px !important; white-space: nowrap; }
+.av-catalogue-content { color: #4a4a4a !important; font-size: 16px !important; line-height: 1.65 !important; }
+.av-catalogue-list li { border-bottom-color: rgba(31,107,92,.35) !important; padding: 26px 0 !important; }
+#cateringmeny .av-catalogue-title-container { margin-bottom: 6px !important; }
 #av_section_intro .hr-inner, #cateringmeny .hr-inner, #galleri .hr-inner { border-color: #1F6B5C !important; }
 
 /* Intro image: the source is a tall 4:5.6 portrait, which stretched this

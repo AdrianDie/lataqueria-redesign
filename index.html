@@ -166,6 +166,10 @@ PLAu:7
 	background-color: #FBF7EE !important;
 	background-image: none !important;
 }
+/* Sections don't always butt up perfectly, and the theme's dark #main was
+   showing through the seams as a grey band. The dark sections paint their
+   own background over this, so only the gaps are affected. */
+#main, #wrap_all { background-color: #FBF7EE !important; }
 
 /* Headings: the theme's .av-inherit-size makes these inherit a ~13-15px
    wrapper (x0.6 again under 760px), so they render as body text. These
