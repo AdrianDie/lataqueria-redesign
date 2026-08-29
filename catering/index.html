@@ -310,9 +310,7 @@ PLAu:7
 	object-fit: cover !important;
 	display: block !important;
 	background: #ede7da;
-	transition: transform .3s ease, filter .3s ease;
 }
-#galleri .flex_column:hover .avia_image { transform: scale(1.05); filter: brightness(1.06); }
 
 /* --- FOOTER: dark. This is the block that carries the logo. --- */
 #contact.main_color {
@@ -330,11 +328,24 @@ PLAu:7
 /* --- NAV: mark the current page (UX: active state) --- */
 #avia-menu .menu-item-top-level-6 > a .avia-menu-text { color: #47a391 !important; }
 
-/* --- MOTION: respect user preference --- */
-@media (prefers-reduced-motion: reduce) {
-	#galleri .avia_image { transition: none !important; }
-	#galleri .flex_column:hover .avia_image { transform: none; filter: none; }
+/* --- NO HOVER ANIMATIONS ---------------------------------------
+   The theme fades buttons, nav links and the sliding menu underline on
+   hover. Those are switched off here along with the transitions that
+   drive them, so nothing moves or fades. Plain colour changes on links
+   stay - they signal clickability rather than animate. */
+#top .avia-button:hover,
+#top .av_header_transparency .main_menu ul:first-child > li > a:hover,
+#top .main_menu ul:first-child > li > a:hover {
+	opacity: 1 !important;
 }
+#top .av-main-nav li:hover .avia-menu-fx,
+#top .av-main-nav .avia-menu-fx { opacity: 0 !important; }
+#top .avia-button,
+#top .main_menu ul:first-child > li > a,
+#top .av-main-nav .avia-menu-fx,
+#top #contact a, #top #contact a span,
+#galleri .avia_image,
+#av_section_intro .avia_image { transition: none !important; }
 </style>
 </head>
 

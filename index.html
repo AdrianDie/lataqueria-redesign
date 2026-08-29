@@ -216,6 +216,32 @@ PLAu:7
    Same tint used on /catering/ so the two pages stay consistent. */
 #contact a, #contact a span { color: #52b09e !important; }
 #contact a:hover, #contact a:hover span { color: #FFEFB4 !important; }
+
+/* --- NO HOVER ANIMATIONS ---------------------------------------
+   The theme fades buttons, nav links and the sliding menu underline on
+   hover, and zooms masonry gallery images. Those are switched off here
+   along with the transitions that drive them. Plain colour changes on
+   links stay - they signal clickability rather than animate. */
+#top .avia-button:hover,
+#top .av_header_transparency .main_menu ul:first-child > li > a:hover,
+#top .main_menu ul:first-child > li > a:hover {
+	opacity: 1 !important;
+}
+#top .av-main-nav li:hover .avia-menu-fx,
+#top .av-main-nav .avia-menu-fx { opacity: 0 !important; }
+#top .av-masonry-entry:hover .av-masonry-image-container,
+#top .av-masonry-entry:hover .av-inner-masonry-content,
+#top .avia-image-container:hover .avia_image {
+	transform: none !important;
+	opacity: 1 !important;
+	filter: none !important;
+}
+#top .avia-button,
+#top .main_menu ul:first-child > li > a,
+#top .av-main-nav .avia-menu-fx,
+#top .av-masonry-image-container,
+#top #contact a, #top #contact a span,
+#top .avia_image { transition: none !important; }
 </style>
 </head>
 
