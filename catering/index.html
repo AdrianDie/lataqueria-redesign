@@ -138,27 +138,13 @@ PLAu:7
 }
 #hero .avia-button { margin: 6px 8px !important; }
 
-/* Fixed header used the theme's plain #2F2F2F default (.header_color in
-   the shared child-theme CSS - not editable here). First replaced with
-   #1c2e29 (matching the hero above) but that reads as near-black at this
-   lightness - still "just as dark". #1F6B5C is the same dark teal already
-   used for menu-heading text elsewhere - visibly teal, not just less grey. */
-#header .header_bg, #header.header_color { background-color: #1F6B5C !important; }
-/* Nav links inherit teal (#47a391) from the shared theme CSS for contrast
-   against a near-black header - too close in hue/lightness to the lighter
-   teal header above, so switched to cream instead of chasing a third tint. */
-#top .header_color .main_menu ul:first-child > li > a { color: #FFEFB4 !important; }
-
-/* --- LIGHT CONTENT SECTIONS --- */
-#av_section_intro.main_color,
-#cateringmeny.main_color, #galleri.main_color {
-	background-color: #FBF7EE !important;
-	background-image: none !important;
+/* --- TRANSPARENT HEADER, SOLID ON SCROLL (matches homepage) --- */
+#header.av_header_transparency .header_bg { transition: background-color 0.3s ease, opacity 0.3s ease; }
+#header.av_header_transparency.header-solid .header_bg {
+	background-color: #2f2f2f !important;
+	opacity: 1 !important;
 }
-/* Sections don't always butt up perfectly, and the theme's dark #main was
-   showing through the seams as a grey band. The dark sections paint their
-   own background over this, so only the gaps are affected. */
-#main, #wrap_all { background-color: #FBF7EE !important; }
+
 /* Section rhythm. The theme stacks three separate gaps - section padding,
    an extra .container padding from avia-section-*, and a 50px top margin on
    every column - which left the intro 767px tall for 138px of text. These
@@ -208,7 +194,6 @@ PLAu:7
 #top #wrap_all #av_section_intro .av-special-heading-tag,
 #top #wrap_all #cateringmeny .av-special-heading-tag,
 #top #wrap_all #galleri .av-special-heading-tag {
-	color: #1F6B5C !important;
 	font-size: clamp(26px, 4vw, 40px) !important;
 	line-height: 1.2 !important;
 	letter-spacing: .01em !important;
@@ -220,22 +205,16 @@ PLAu:7
 #top #wrap_all #contact .av-special-heading-tag,
 #top #wrap_all #contact h2 { font-size: clamp(20px, 2.4vw, 28px) !important; }
 
-/* Body copy on light background */
-#av_section_intro p, #av_section_intro span,
-#cateringmeny > .container p, #cateringmeny > .container span {
-	color: #4a4a4a !important;
-}
 /* Menu list: at full 1210px width the dish name and its price sat at
    opposite ends of the screen. A centred measure keeps them related and
    puts the description inside a readable line length. */
 #cateringmeny .av-catalogue-container { max-width: 820px; margin-inline: auto !important; }
 #cateringmeny .av-catalogue-content   { max-width: 62ch; }
-.av-catalogue-title   { color: #2a2a2a !important; font-size: 21px !important; }
-.av-catalogue-price   { color: #1F6B5C !important; font-size: 21px !important; white-space: nowrap; }
-.av-catalogue-content { color: #4a4a4a !important; font-size: 16px !important; line-height: 1.65 !important; }
-.av-catalogue-list li { border-bottom-color: rgba(31,107,92,.35) !important; padding: 26px 0 !important; }
+.av-catalogue-title   { font-size: 21px !important; }
+.av-catalogue-price   { font-size: 21px !important; white-space: nowrap; }
+.av-catalogue-content { font-size: 16px !important; line-height: 1.65 !important; }
+.av-catalogue-list li { padding: 26px 0 !important; }
 #cateringmeny .av-catalogue-title-container { margin-bottom: 6px !important; }
-#av_section_intro .hr-inner, #cateringmeny .hr-inner, #galleri .hr-inner { border-color: #1F6B5C !important; }
 
 /* Intro image: the source is a tall 4:5.6 portrait, which stretched this
    section to 1100px+. Crop it to a calmer ratio beside the text. */
@@ -279,23 +258,10 @@ PLAu:7
 	aspect-ratio: 4 / 5 !important;
 	object-fit: cover !important;
 	display: block !important;
-	background: #ede7da;
+	background: #2f2f2f;
 }
 
-/* --- FOOTER: dark. This is the block that carries the logo. Same
-   visibly-teal #1F6B5C as the header, not the near-black #1c2e29
-   tried first (barely distinguishable from black at that lightness). --- */
-#contact.main_color {
-	background-color: #1F6B5C !important;
-	background-image: none !important;
-}
 #contact { padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px) !important; }
-#contact .av-special-heading-tag, #contact h2 span { color: #FFEFB4 !important; }
-#contact p span, #contact div { color: #eaeaea !important; }
-/* Plain teal links (#47a391/#52b09e) are too close in hue/lightness to
-   this background to read clearly - cream matches the headings instead. */
-#contact a, #contact a span { color: #FFEFB4 !important; }
-#contact a:hover, #contact a:hover span { color: #FFFFFF !important; }
 
 /* --- NAV: mark the current page (UX: active state) --- */
 #avia-menu .menu-item-top-level-6 > a .avia-menu-text { color: #47a391 !important; }
@@ -411,7 +377,7 @@ PLAu:7
 			<div id='wrap_all'>
 
 	
-<header id='header' class='all_colors header_color dark_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_minimal_header_shadow av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
+<header id='header' class='all_colors header_color dark_bg_color av_header_transparency  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_minimal_header_shadow av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
 
 		<div  id='header_main' class='container_wrap container_wrap_logo'>
 
@@ -594,6 +560,18 @@ var avia_framework_globals = avia_framework_globals || {};
 <a href='#top' title='Scroll to top' id='scroll-top-link' aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'><span class="avia_hidden_link_text">Scroll to top</span></a>
 
 <div id="fb-root"></div>
+<script>
+(function(){
+	var header = document.getElementById('header');
+	if(!header) return;
+	function onScroll(){
+		if(window.scrollY > 40){ header.classList.add('header-solid'); }
+		else{ header.classList.remove('header-solid'); }
+	}
+	window.addEventListener('scroll', onScroll, {passive:true});
+	onScroll();
+})();
+</script>
 </body>
 
 
