@@ -350,6 +350,16 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 .catering-teaser-text .av-special-heading { text-align: left; }
 .catering-teaser-text p { font-size: 18px; line-height: 1.6; color: #4a4a4a; max-width: 48ch; margin: 0 0 22px; }
 
+/* --- OM OSS: rå Enfold-kolonner er float-baserte og topp-justerte, så
+   kort tekst ved siden av et 845x684-bilde etterlot et flatt mørkt felt
+   under teksten hver gang raden var kortere enn bildet. Flex + center
+   holder bredde/marg (47%/6%) uendret, men senterer innholdet i raden. */
+#aboutus .entry-content-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
 /* --- FINN OSS (anmeldelser + åpningstider + kart) --- */
 #hoursmap.main_color { background-color: #FBF7EE !important; background-image: none !important; border-top: none !important; }
 #hoursmap .av-special-heading-tag { color: #4a4a4a !important; }
@@ -639,6 +649,21 @@ var avia_framework_globals = avia_framework_globals || {};
 	}
 	window.addEventListener('scroll', onScroll, {passive:true});
 	onScroll();
+})();
+
+/* Avia's slideshow JS calls hideSlide.trigger('pause') as part of its
+   transition-init logic, which fires even with a single slide (there's
+   nothing to transition to/from) and pauses the only video shortly
+   after this script's own play() call - confirmed by currentTime
+   advancing a moment then freezing. Despite valid autoplay/muted/
+   playsinline, the hero video ends up paused on its first (dark)
+   frame, making the header above it look solid instead of
+   transparent-over-video. Re-playing on 'pause' undoes that. */
+(function(){
+	var heroVideo = document.querySelector('#av_section_1 video');
+	if (!heroVideo) return;
+	heroVideo.addEventListener('pause', function(){ heroVideo.play().catch(function(){}); });
+	heroVideo.play().catch(function(){});
 })();
 </script>
 </body>
