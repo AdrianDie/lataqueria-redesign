@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB" class="html_stretched responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking_disabled html_mobile_menu_tablet html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_minimal_header html_minimal_header_shadow html_burger_menu html_av-overlay-full html_av-submenu-noclone html_entry_id_241 av-cookies-no-cookie-consent av-default-lightbox av-no-preview html_burger_menu_active">
+<html lang="en-GB" class="html_stretched responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking_disabled html_mobile_menu_tablet html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_minimal_header html_minimal_header_shadow html_av-overlay-full html_av-submenu-noclone html_entry_id_241 av-cookies-no-cookie-consent av-default-lightbox av-no-preview">
 
 <!-- Mirrored from www.lataqueria.no/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Aug 2026 09:14:08 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -179,6 +179,11 @@ PLAu:7
 }
 #hero .avia-button { margin: 6px 8px !important; }
 
+/* Fixed header used the theme's plain #2F2F2F default (.header_color in
+   the shared child-theme CSS - not editable here). Same teal-black as
+   the hero above instead, so the header reads as a brand color. */
+#header .header_bg, #header.header_color { background-color: #1c2e29 !important; }
+
 /* --- LIGHT CONTENT SECTIONS --- */
 #av_section_intro.main_color,
 #cateringmeny.main_color, #galleri.main_color {
@@ -312,16 +317,17 @@ PLAu:7
 	background: #ede7da;
 }
 
-/* --- FOOTER: dark. This is the block that carries the logo. --- */
+/* --- FOOTER: dark. This is the block that carries the logo. Same
+   teal-black as the hero instead of flat grey. --- */
 #contact.main_color {
-	background-color: #2F2F2F !important;
+	background-color: #1c2e29 !important;
 	background-image: none !important;
 }
 #contact { padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px) !important; }
 #contact .av-special-heading-tag, #contact h2 span { color: #FFEFB4 !important; }
 #contact p span, #contact div { color: #d8d8d8 !important; }
-/* Brand teal #47a391 measures 4.41:1 on this dark footer - just under
-   WCAG AA. Lifted to the nearest brand-consistent tint that passes. */
+/* #52b09e measures 5.14:1 here (was 4.41:1 for the base teal #47a391 on
+   the old #2F2F2F grey, just under WCAG AA - hence the lighter tint). */
 #contact a, #contact a span { color: #52b09e !important; }
 #contact a:hover, #contact a:hover span { color: #FFEFB4 !important; }
 
@@ -350,6 +356,37 @@ PLAu:7
    text-color change, so the dark-on-dark text goes nearly unreadable. */
 #top .av-catalogue-list li:hover { background-color: transparent !important; }
 
+/* --- NORMAL DESKTOP NAV (drop the always-on burger) --------------
+   This header used Enfold's "Burger Menu" style, which forces the
+   hamburger at every width via html_burger_menu / html_burger_menu_active
+   on <html> (removed). Below 990px those same two classes did nothing
+   anyway - separate, unconditional-within-media-query rules already
+   show the burger and hide the list there - so mobile/tablet are
+   unaffected. At 990px+, nav.main_menu was position:absolute;right:0,
+   which collided with the equally-absolute #header-cta-btn once real
+   nav items appeared; switching the row to flex fixes that without
+   hand-tuned pixel offsets. HOME is dropped here only - the logo
+   already links home, and the mobile burger overlay still lists it. */
+@media (min-width: 990px) {
+	.av-logo-container .inner-container {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+	}
+	nav.main_menu, .av-main-nav-wrap {
+		position: static !important;
+		width: auto !important;
+	}
+	.logo.avia-standard-logo {
+		position: static !important;
+	}
+	#avia-menu {
+		display: flex !important;
+		align-items: center !important;
+	}
+	#avia-menu > li:first-child { display: none !important; }
+}
+
 /* --- FIXED HEADER CTA (desktop) ---------------------------------
    The header is now sticky (av_header_sticky), staying visible at
    every scroll position. Enfold's own CSS only makes #header
@@ -362,10 +399,8 @@ PLAu:7
 	#header-cta-btn {
 		display: flex !important;
 		align-items: center !important;
-		position: absolute !important;
-		top: 50% !important;
-		right: 70px !important;
-		transform: translateY(-50%) !important;
+		position: static !important;
+		margin-left: 24px !important;
 		height: auto !important;
 		min-height: 44px !important;
 		line-height: normal !important;

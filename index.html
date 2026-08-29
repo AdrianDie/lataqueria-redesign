@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB" class="html_stretched responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking_disabled html_mobile_menu_tablet html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_minimal_header html_minimal_header_shadow html_burger_menu html_av-overlay-full html_av-submenu-noclone html_entry_id_241 av-cookies-no-cookie-consent av-default-lightbox av-no-preview html_burger_menu_active">
+<html lang="en-GB" class="html_stretched responsive av-preloader-disabled  html_header_top html_logo_left html_main_nav_header html_menu_right html_slim html_header_sticky html_header_shrinking_disabled html_mobile_menu_tablet html_header_searchicon_disabled html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_minimal_header html_minimal_header_shadow html_av-overlay-full html_av-submenu-noclone html_entry_id_241 av-cookies-no-cookie-consent av-default-lightbox av-no-preview">
 
 <!-- Mirrored from www.lataqueria.no/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Aug 2026 09:14:08 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -171,6 +171,18 @@ PLAu:7
    own background over this, so only the gaps are affected. */
 #main, #wrap_all { background-color: #FBF7EE !important; }
 
+/* The three dark sections (fixed header, takeaway band, footer - see
+   note above) all came from the theme's plain #2F2F2F default (.main_color
+   / .header_color in the shared child-theme CSS - not editable here).
+   Same teal-black used on the catering hero instead, so "dark" reads as
+   a brand color rather than a flat default grey. */
+#header .header_bg, #header.header_color { background-color: #1c2e29 !important; }
+#takeaway.main_color { background-color: #1c2e29 !important; background-image: none !important; }
+/* This section expected a fixed background photo (avia-bg-style-fixed)
+   darkened by a 70%-opacity black overlay div. There's no photo, so the
+   overlay was just painting flat black over the color above it. */
+#takeaway .av-section-color-overlay { background-color: transparent !important; }
+
 /* Headings: the theme's .av-inherit-size makes these inherit a ~13-15px
    wrapper (x0.6 again under 760px), so they render as body text. These
    selectors also out-specify the theme's #top #wrap_all rules. */
@@ -209,10 +221,14 @@ PLAu:7
 #aboutus .avia_image, #gallerydiv .avia_image { border-radius: 6px; }
 
 /* Footer stays dark and carries its own top spacing now that the
-   divider band between content and footer is gone. */
-#contact.main_color { background-color: #2F2F2F !important; background-image: none !important; }
+   divider band between content and footer is gone. Same teal-black
+   as the catering hero (#1c2e29) instead of flat gray - reads as a
+   brand color, not a default, and happens to also fix the contrast
+   note below. */
+#contact.main_color { background-color: #1c2e29 !important; background-image: none !important; }
 #contact { padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px) !important; }
-/* Brand teal measures 4.41:1 on the dark footer - just under WCAG AA.
+/* #52b09e measures 5.14:1 here (was 4.41:1 for the base teal on the
+   old #2F2F2F gray, just under WCAG AA - hence the lighter tint).
    Same tint used on /catering/ so the two pages stay consistent. */
 #contact a, #contact a span { color: #52b09e !important; }
 #contact a:hover, #contact a:hover span { color: #FFEFB4 !important; }
@@ -262,6 +278,37 @@ PLAu:7
 	align-items: center;
 }
 
+/* --- NORMAL DESKTOP NAV (drop the always-on burger) --------------
+   This header used Enfold's "Burger Menu" style, which forces the
+   hamburger at every width via html_burger_menu / html_burger_menu_active
+   on <html> (removed). Below 990px those same two classes did nothing
+   anyway - separate, unconditional-within-media-query rules already
+   show the burger and hide the list there - so mobile/tablet are
+   unaffected. At 990px+, nav.main_menu was position:absolute;right:0,
+   which collided with the equally-absolute #header-cta-btn once real
+   nav items appeared; switching the row to flex fixes that without
+   hand-tuned pixel offsets. HOME is dropped here only - the logo
+   already links home, and the mobile burger overlay still lists it. */
+@media (min-width: 990px) {
+	.av-logo-container .inner-container {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+	}
+	nav.main_menu, .av-main-nav-wrap {
+		position: static !important;
+		width: auto !important;
+	}
+	.logo.avia-standard-logo {
+		position: static !important;
+	}
+	#avia-menu {
+		display: flex !important;
+		align-items: center !important;
+	}
+	#avia-menu > li:first-child { display: none !important; }
+}
+
 /* --- FIXED HEADER CTA (desktop) ---------------------------------
    The header is now sticky (av_header_sticky) so this button stays
    visible at every scroll position - replaces the old CTA block that
@@ -275,10 +322,8 @@ PLAu:7
 	#header-cta-btn {
 		display: flex !important;
 		align-items: center !important;
-		position: absolute !important;
-		top: 50% !important;
-		right: 70px !important;
-		transform: translateY(-50%) !important;
+		position: static !important;
+		margin-left: 24px !important;
 		height: auto !important;
 		min-height: 44px !important;
 		line-height: normal !important;
@@ -308,7 +353,7 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 		left: 0; right: 0; bottom: 0;
 		z-index: 999;
 		gap: 10px;
-		background-color: #2F2F2F;
+		background-color: #1c2e29;
 		border-top: 1px solid #47a391;
 		padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
 	}
