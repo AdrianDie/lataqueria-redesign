@@ -158,44 +158,133 @@ PLAu:7
 
 
 <style>
-/* Hero stays dark with the food-photo background */
+/* ============================================================
+   Catering page overrides. Scoped to this page only - the shared
+   Enfold theme CSS is untouched so the homepage stays identical.
+   Structure: dark hero -> light content -> dark footer (logo).
+   ============================================================ */
+
+/* --- HERO: dark, photo background, generous height --- */
 #hero.main_color {
 	background-color: #1c2e29 !important;
-	background-image: linear-gradient(rgba(10,16,15,.78), rgba(10,16,15,.88)), url('../images/hero-bg.webp') !important;
+	background-image: linear-gradient(rgba(10,16,15,.72), rgba(10,16,15,.86)), url('../images/hero-bg.webp') !important;
 	background-size: cover !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
+	padding: clamp(80px, 12vw, 150px) 0 !important;
 }
+#hero .av-special-heading-tag {
+	font-size: clamp(34px, 6vw, 64px) !important;
+	line-height: 1.1 !important;
+}
+#hero .avia-button { margin: 6px 8px !important; }
 
-/* Body sections: light, warm ivory instead of the theme's flat dark gray */
-#av_section_divider.main_color, #av_section_intro.main_color, #cateringmeny.main_color, #galleri.main_color, #dividerfooter.main_color, #contact.main_color {
+/* --- LIGHT CONTENT SECTIONS --- */
+#av_section_divider.main_color, #av_section_intro.main_color,
+#cateringmeny.main_color, #galleri.main_color {
 	background-color: #FBF7EE !important;
 	background-image: none !important;
 }
+#av_section_intro { padding: clamp(48px, 7vw, 90px) 0 !important; }
+#cateringmeny     { padding: clamp(48px, 7vw, 90px) 0 !important; }
+#galleri          { padding: clamp(48px, 7vw, 90px) 0 clamp(56px, 8vw, 100px) !important; }
+#av_section_divider { padding: clamp(24px, 4vw, 48px) 0 !important; }
 
-/* Re-pair text/accent colors for the light sections (theme defaults assume a dark background) */
-#av_section_intro .av-special-heading-tag,
-#cateringmeny .av-special-heading-tag,
-#galleri .av-special-heading-tag {
+/* Section headings rendered at 13px desktop / 7.8px mobile: the theme's
+   .av-inherit-size makes the tag inherit a 13px wrapper, and the child
+   theme multiplies that by 0.6 under 760px. The class is removed from the
+   markup; these selectors also out-specify the theme's #top #wrap_all rule. */
+#top #wrap_all #av_section_intro .av-special-heading-tag,
+#top #wrap_all #cateringmeny .av-special-heading-tag,
+#top #wrap_all #galleri .av-special-heading-tag {
 	color: #1F6B5C !important;
+	font-size: clamp(26px, 4vw, 40px) !important;
+	line-height: 1.2 !important;
+	letter-spacing: .01em !important;
 }
+#top #wrap_all #hero .av-special-heading-tag {
+	font-size: clamp(34px, 6vw, 64px) !important;
+	line-height: 1.1 !important;
+}
+#top #wrap_all #contact .av-special-heading-tag,
+#top #wrap_all #contact h2 { font-size: clamp(20px, 2.4vw, 28px) !important; }
+
+/* Body copy on light background */
 #av_section_intro p, #av_section_intro span,
 #cateringmeny > .container p, #cateringmeny > .container span {
 	color: #4a4a4a !important;
 }
-.av-catalogue-title { color: #2a2a2a !important; }
-.av-catalogue-price { color: #1F6B5C !important; }
-.av-catalogue-content { color: #4a4a4a !important; }
-.av-catalogue-list li { border-bottom-color: #1F6B5C !important; }
+.av-catalogue-title   { color: #2a2a2a !important; font-size: 20px !important; }
+.av-catalogue-price   { color: #1F6B5C !important; font-size: 20px !important; }
+.av-catalogue-content { color: #4a4a4a !important; line-height: 1.6 !important; }
+.av-catalogue-list li { border-bottom-color: rgba(31,107,92,.35) !important; padding: 22px 0 !important; }
 #av_section_intro .hr-inner, #cateringmeny .hr-inner, #galleri .hr-inner { border-color: #1F6B5C !important; }
-#contact .av-special-heading-tag, #contact h2 span { color: #1F6B5C !important; }
-#contact p span, #contact div { color: #4a4a4a !important; }
-#contact a, #contact a span { color: #1F6B5C !important; }
 
-/* Gallery: subtle lift on hover for interactivity */
-#galleri .avia-image-container-inner { overflow: hidden; border-radius: 4px; }
-#galleri .avia_image { transition: transform .3s ease, filter .3s ease; }
-#galleri .flex_column:hover .avia_image { transform: scale(1.04); filter: brightness(1.05); }
+/* Intro image: the source is a tall 4:5.6 portrait, which stretched this
+   section to 1100px+. Crop it to a calmer ratio beside the text. */
+#av_section_intro .avia_image {
+	border-radius: 6px;
+	width: 100% !important;
+	aspect-ratio: 4 / 3 !important;
+	object-fit: cover !important;
+	display: block !important;
+}
+#av_section_intro .flex_column { display: flex; align-items: center; }
+
+/* --- GALLERY: real CSS grid ---------------------------------
+   The theme's float grid only fit 2 of 3 columns at 1440px, which
+   stretched this section to 3300px of tall portrait images. A
+   self-sizing grid with a fixed aspect ratio keeps rows even. */
+#galleri .flex_column_table {
+	display: grid !important;
+	grid-template-columns: repeat(2, 1fr) !important;
+	gap: 12px !important;
+	width: 100% !important;
+}
+@media (min-width: 768px)  { #galleri .flex_column_table { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; } }
+@media (min-width: 1200px) { #galleri .flex_column_table { grid-template-columns: repeat(4, 1fr) !important; gap: 18px !important; } }
+#galleri .flex_column {
+	width: 100% !important;
+	margin: 0 !important;
+	float: none !important;
+	padding: 0 !important;
+}
+#galleri .avia-image-container,
+#galleri .avia-image-container-inner,
+#galleri .avia-image-overlay-wrap { margin: 0 !important; }
+#galleri .avia-image-container-inner { overflow: hidden; border-radius: 6px; }
+#galleri .avia_image {
+	width: 100% !important;
+	height: 100% !important;
+	aspect-ratio: 4 / 5 !important;
+	object-fit: cover !important;
+	display: block !important;
+	transition: transform .3s ease, filter .3s ease;
+}
+#galleri .flex_column:hover .avia_image { transform: scale(1.05); filter: brightness(1.06); }
+
+/* --- FOOTER: dark. This is the block that carries the logo. --- */
+#dividerfooter.main_color, #contact.main_color {
+	background-color: #2F2F2F !important;
+	background-image: none !important;
+}
+#dividerfooter { padding: clamp(28px, 4vw, 56px) 0 0 !important; }
+#contact { padding: clamp(24px, 4vw, 48px) 0 clamp(32px, 5vw, 64px) !important; }
+#contact .av-special-heading-tag, #contact h2 span { color: #FFEFB4 !important; }
+#contact p span, #contact div { color: #d8d8d8 !important; }
+/* Brand teal #47a391 measures 4.41:1 on this dark footer - just under
+   WCAG AA. Lifted to the nearest brand-consistent tint that passes. */
+#contact a, #contact a span { color: #52b09e !important; }
+#contact a:hover, #contact a:hover span { color: #FFEFB4 !important; }
+
+/* --- NAV: mark the current page (UX: active state) --- */
+#avia-menu .menu-item-top-level-6 > a .avia-menu-text { color: #47a391 !important; }
+
+/* --- MOTION: respect user preference --- */
+@media (prefers-reduced-motion: reduce) {
+	#galleri .avia_image { transition: none !important; }
+	#galleri .flex_column:hover .avia_image { transform: none; filter: none; }
+}
 </style>
 </head>
 
@@ -254,7 +343,7 @@ PLAu:7
 </div></div></div></div></div>
 
 <div id='cateringmeny'  class='avia-section main_color avia-section-small avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
-<div  class='av-special-heading av-special-heading-h3 blockquote modern-quote modern-centered av-inherit-size'><h3 class='av-special-heading-tag' itemprop="headline">CATERINGMENY</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<div  class='av-special-heading av-special-heading-h3 blockquote modern-quote modern-centered'><h3 class='av-special-heading-tag' itemprop="headline">CATERINGMENY</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
 <div  class='hr hr-invisible'><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
 <div  class='av-catalogue-container'><ul class='av-catalogue-list'>
 <li><div class='av-catalogue-item'><div class="av-catalogue-item-inner"><div class="av-catalogue-title-container"><div class='av-catalogue-title'>12 stk Tacos</div><div class='av-catalogue-price'>1199,-</div></div><div class="av-catalogue-content">
@@ -300,7 +389,7 @@ V&aring;r egen kremet dessert med hint av sitrus og karamell.
 </div></div></div></div></div>
 
 <div id='galleri' class='avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
-<div  class='av-special-heading av-special-heading-h3 blockquote modern-quote modern-centered av-inherit-size'><h3 class='av-special-heading-tag' itemprop="headline">FRA KJ&Oslash;KKENET</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
+<div  class='av-special-heading av-special-heading-h3 blockquote modern-quote modern-centered'><h3 class='av-special-heading-tag' itemprop="headline">FRA KJ&Oslash;KKENET</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
 <div  class='hr hr-invisible'><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
 <div class='flex_column_table av-equal-height-column-flextable' style="display:flex; flex-wrap:wrap; gap:20px;">
 <div class='flex_column av_one_third first no_margin flex_column_div column-top-margin'><div class='avia-image-container av-styling- avia-align-center'><div class="avia-image-container-inner"><div class="avia-image-overlay-wrap"><img decoding="async" loading="lazy" class='avia_image' src="../images/spread-1.webp" width="700" height="981" style="aspect-ratio:700/981;object-fit:cover;" alt="Bord fylt med tostadas, reker, guacamole og nachos hos La Taqueria" /></div></div></div></div>
