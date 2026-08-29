@@ -158,16 +158,44 @@ PLAu:7
 
 
 <style>
-#hero.main_color, #av_section_intro.main_color, #cateringmeny.main_color, #galleri.main_color, #dividerfooter.main_color, #contact.main_color {
-	background-color: #1c2e29 !important;
-	background-image: linear-gradient(160deg, #16211f 0%, #223832 100%) !important;
-}
+/* Hero stays dark with the food-photo background */
 #hero.main_color {
+	background-color: #1c2e29 !important;
 	background-image: linear-gradient(rgba(10,16,15,.78), rgba(10,16,15,.88)), url('../images/hero-bg.webp') !important;
 	background-size: cover !important;
 	background-position: center !important;
 	background-repeat: no-repeat !important;
 }
+
+/* Body sections: light, warm ivory instead of the theme's flat dark gray */
+#av_section_divider.main_color, #av_section_intro.main_color, #cateringmeny.main_color, #galleri.main_color, #dividerfooter.main_color, #contact.main_color {
+	background-color: #FBF7EE !important;
+	background-image: none !important;
+}
+
+/* Re-pair text/accent colors for the light sections (theme defaults assume a dark background) */
+#av_section_intro .av-special-heading-tag,
+#cateringmeny .av-special-heading-tag,
+#galleri .av-special-heading-tag {
+	color: #1F6B5C !important;
+}
+#av_section_intro p, #av_section_intro span,
+#cateringmeny > .container p, #cateringmeny > .container span {
+	color: #4a4a4a !important;
+}
+.av-catalogue-title { color: #2a2a2a !important; }
+.av-catalogue-price { color: #1F6B5C !important; }
+.av-catalogue-content { color: #4a4a4a !important; }
+.av-catalogue-list li { border-bottom-color: #1F6B5C !important; }
+#av_section_intro .hr-inner, #cateringmeny .hr-inner, #galleri .hr-inner { border-color: #1F6B5C !important; }
+#contact .av-special-heading-tag, #contact h2 span { color: #1F6B5C !important; }
+#contact p span, #contact div { color: #4a4a4a !important; }
+#contact a, #contact a span { color: #1F6B5C !important; }
+
+/* Gallery: subtle lift on hover for interactivity */
+#galleri .avia-image-container-inner { overflow: hidden; border-radius: 4px; }
+#galleri .avia_image { transition: transform .3s ease, filter .3s ease; }
+#galleri .flex_column:hover .avia_image { transform: scale(1.04); filter: brightness(1.05); }
 </style>
 </head>
 
