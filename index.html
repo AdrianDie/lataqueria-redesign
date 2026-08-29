@@ -258,8 +258,19 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 }
 
 /* --- NEW SECTIONS: generous vertical breathing room --- */
-#av_section_3, #whyus, #cateringteaser, #hoursmap {
+#whyus, #cateringteaser, #hoursmap {
 	padding: clamp(64px, 8vw, 110px) 0 !important;
+}
+/* Menu teaser had 40/100px section margin *plus* the shared 64-110px
+   padding above stacking with #menu's own bottom padding above it -
+   compounded to ~240px of empty space before the dish cards. */
+#av_section_3 {
+	margin-top: 20px !important;
+	margin-bottom: 20px !important;
+	padding: clamp(32px, 4vw, 56px) 0 !important;
+}
+#menu .content {
+	padding-bottom: 30px !important;
 }
 .whyus-grid, .catering-teaser-row, .hoursmap-row { margin-top: 36px; }
 
@@ -270,9 +281,9 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 	min-height: 0 !important;
 }
 .menu-teaser-note {
-	margin: 18px 0 0;
+	margin: 40px 0 0;
 	font-size: 15px;
-	color: #6a6a6a;
+	color: #ffffff;
 	text-align: center;
 }
 .menu-teaser-grid {
