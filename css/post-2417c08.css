@@ -447,3 +447,25 @@ font-size:16px;
 }
 
 #top #socket{background-color:#1f6b5c !important;}
+
+#top .avia-button{transition:transform 0.2s ease, opacity 0.2s ease !important;}
+#top .avia-button:hover{transform:translateY(-2px);}
+#top .av-main-nav > li > a .avia-menu-text{position:relative;display:inline-block;line-height:normal;transition:color 0.2s ease;}
+#top .av-main-nav > li > a .avia-menu-text::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:#47a391;transition:width 0.25s ease;}
+#top .av-main-nav > li > a:hover .avia-menu-text{color:#47a391 !important;}
+#top .av-main-nav > li > a:hover .avia-menu-text::after{width:100%;}
+
+#top .avia-button.avia-color-theme-color,
+#top .avia-button.cta-primary{
+background-color:#F26419 !important;
+border-color:#F26419 !important;
+color:#000000 !important;
+transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease !important;
+}
+#top .avia-button.avia-color-theme-color:hover,
+#top .avia-button.cta-primary:hover{
+background-color:#d9550f !important;
+color:#ffffff !important;
+transform:translateY(-3px);
+box-shadow:0 10px 24px rgba(242,100,25,0.4);
+}
