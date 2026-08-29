@@ -174,14 +174,24 @@ PLAu:7
 /* The three dark sections (fixed header, takeaway band, footer - see
    note above) all came from the theme's plain #2F2F2F default (.main_color
    / .header_color in the shared child-theme CSS - not editable here).
-   Same teal-black used on the catering hero instead, so "dark" reads as
-   a brand color rather than a flat default grey. */
-#header .header_bg, #header.header_color { background-color: #1c2e29 !important; }
-#takeaway.main_color { background-color: #1c2e29 !important; background-image: none !important; }
+   First replaced with #1c2e29 (a near-black teal) - still read as plain
+   dark/depressing since it's barely distinguishable from black at that
+   lightness. #1F6B5C is the same dark teal already used for menu-heading
+   text elsewhere on this page - visibly teal, not just "less grey". */
+#header .header_bg, #header.header_color { background-color: #1F6B5C !important; }
+/* Nav links inherit teal (#47a391) from the shared theme CSS for contrast
+   against a near-black header - too close in hue/lightness to the lighter
+   teal header above, so switched to cream instead of chasing a third tint. */
+#top .header_color .main_menu ul:first-child > li > a { color: #FFEFB4 !important; }
+#takeaway.main_color { background-color: #1F6B5C !important; background-image: none !important; }
 /* This section expected a fixed background photo (avia-bg-style-fixed)
    darkened by a 70%-opacity black overlay div. There's no photo, so the
    overlay was just painting flat black over the color above it. */
 #takeaway .av-section-color-overlay { background-color: transparent !important; }
+/* "Bestill levering" is the theme's default outline button (cream text,
+   teal border) - both were tuned for a near-black background and lose
+   contrast against the lighter teal above. */
+#takeaway .avia-button:not(.cta-primary) { color: #FFEFB4 !important; border-color: #FFEFB4 !important; }
 
 /* Headings: the theme's .av-inherit-size makes these inherit a ~13-15px
    wrapper (x0.6 again under 760px), so they render as body text. These
@@ -221,17 +231,14 @@ PLAu:7
 #aboutus .avia_image, #gallerydiv .avia_image { border-radius: 6px; }
 
 /* Footer stays dark and carries its own top spacing now that the
-   divider band between content and footer is gone. Same teal-black
-   as the catering hero (#1c2e29) instead of flat gray - reads as a
-   brand color, not a default, and happens to also fix the contrast
-   note below. */
-#contact.main_color { background-color: #1c2e29 !important; background-image: none !important; }
+   divider band between content and footer is gone. Same visibly-teal
+   #1F6B5C as the header, not the near-black #1c2e29 tried first. */
+#contact.main_color { background-color: #1F6B5C !important; background-image: none !important; }
 #contact { padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px) !important; }
-/* #52b09e measures 5.14:1 here (was 4.41:1 for the base teal on the
-   old #2F2F2F gray, just under WCAG AA - hence the lighter tint).
-   Same tint used on /catering/ so the two pages stay consistent. */
-#contact a, #contact a span { color: #52b09e !important; }
-#contact a:hover, #contact a:hover span { color: #FFEFB4 !important; }
+/* Plain teal links (#47a391/#52b09e) are too close in hue/lightness to
+   this background to read clearly - cream matches the headings instead. */
+#contact a, #contact a span { color: #FFEFB4 !important; }
+#contact a:hover, #contact a:hover span { color: #FFFFFF !important; }
 
 /* --- NO HOVER ANIMATIONS ---------------------------------------
    The theme fades buttons, nav links and the sliding menu underline on
@@ -353,8 +360,8 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 		left: 0; right: 0; bottom: 0;
 		z-index: 999;
 		gap: 10px;
-		background-color: #1c2e29;
-		border-top: 1px solid #47a391;
+		background-color: #1F6B5C;
+		border-top: 1px solid #FFEFB4;
 		padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
 	}
 	#mobile-cta-bar a {
@@ -364,8 +371,8 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 		justify-content: center;
 		min-height: 44px;
 		border-radius: 4px;
-		border: 2px solid #47a391;
-		color: #ddcd92;
+		border: 2px solid #FFEFB4;
+		color: #FFEFB4;
 		font-size: 15px;
 		font-weight: 600;
 		text-decoration: none;

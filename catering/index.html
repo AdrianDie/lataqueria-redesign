@@ -180,9 +180,15 @@ PLAu:7
 #hero .avia-button { margin: 6px 8px !important; }
 
 /* Fixed header used the theme's plain #2F2F2F default (.header_color in
-   the shared child-theme CSS - not editable here). Same teal-black as
-   the hero above instead, so the header reads as a brand color. */
-#header .header_bg, #header.header_color { background-color: #1c2e29 !important; }
+   the shared child-theme CSS - not editable here). First replaced with
+   #1c2e29 (matching the hero above) but that reads as near-black at this
+   lightness - still "just as dark". #1F6B5C is the same dark teal already
+   used for menu-heading text elsewhere - visibly teal, not just less grey. */
+#header .header_bg, #header.header_color { background-color: #1F6B5C !important; }
+/* Nav links inherit teal (#47a391) from the shared theme CSS for contrast
+   against a near-black header - too close in hue/lightness to the lighter
+   teal header above, so switched to cream instead of chasing a third tint. */
+#top .header_color .main_menu ul:first-child > li > a { color: #FFEFB4 !important; }
 
 /* --- LIGHT CONTENT SECTIONS --- */
 #av_section_intro.main_color,
@@ -318,18 +324,19 @@ PLAu:7
 }
 
 /* --- FOOTER: dark. This is the block that carries the logo. Same
-   teal-black as the hero instead of flat grey. --- */
+   visibly-teal #1F6B5C as the header, not the near-black #1c2e29
+   tried first (barely distinguishable from black at that lightness). --- */
 #contact.main_color {
-	background-color: #1c2e29 !important;
+	background-color: #1F6B5C !important;
 	background-image: none !important;
 }
 #contact { padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px) !important; }
 #contact .av-special-heading-tag, #contact h2 span { color: #FFEFB4 !important; }
-#contact p span, #contact div { color: #d8d8d8 !important; }
-/* #52b09e measures 5.14:1 here (was 4.41:1 for the base teal #47a391 on
-   the old #2F2F2F grey, just under WCAG AA - hence the lighter tint). */
-#contact a, #contact a span { color: #52b09e !important; }
-#contact a:hover, #contact a:hover span { color: #FFEFB4 !important; }
+#contact p span, #contact div { color: #eaeaea !important; }
+/* Plain teal links (#47a391/#52b09e) are too close in hue/lightness to
+   this background to read clearly - cream matches the headings instead. */
+#contact a, #contact a span { color: #FFEFB4 !important; }
+#contact a:hover, #contact a:hover span { color: #FFFFFF !important; }
 
 /* --- NAV: mark the current page (UX: active state) --- */
 #avia-menu .menu-item-top-level-6 > a .avia-menu-text { color: #47a391 !important; }
