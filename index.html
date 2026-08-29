@@ -242,6 +242,9 @@ PLAu:7
 #top .av-masonry-image-container,
 #top #contact a, #top #contact a span,
 #top .avia_image { transition: none !important; }
+/* Menu rows flip to a dark #2F2F2F background on hover with no matching
+   text-color change, so the dark-on-dark text goes nearly unreadable. */
+#top .av-catalogue-list li:hover { background-color: transparent !important; }
 
 /* --- PRIMARY CTA: one filled action per button row, rest stay outline ---
    Three buttons in a row (hero, mid-menu, takeaway) rendered visually
