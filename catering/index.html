@@ -346,6 +346,22 @@ PLAu:7
 #top #contact a, #top #contact a span,
 #galleri .avia_image,
 #av_section_intro .avia_image { transition: none !important; }
+
+/* --- PRIMARY CTA: one filled action per button row, rest stay outline ---
+   Three buttons in a row rendered visually identical - nothing told the
+   eye which action to take first. Phone is fastest for a catering order. */
+#top .avia-buttonrow-wrap .avia-button.avia-color-theme-color.cta-primary,
+#top .avia-buttonrow-wrap .avia-button.avia-color-theme-color.cta-primary .avia_iconbox_title {
+	background-color: #47a391 !important;
+	color: #000 !important;
+}
+
+/* Buttons measured 42px tall on mobile - just under the 44px touch minimum */
+#top .avia-buttonrow-wrap .avia-button.avia-size-small {
+	min-height: 44px;
+	display: inline-flex;
+	align-items: center;
+}
 </style>
 </head>
 
@@ -388,7 +404,7 @@ PLAu:7
 <div  class='hr hr-invisible'><span class='hr-inner '><span class="hr-inner-style"></span></span></div>
 <div  class='avia-buttonrow-wrap avia-buttonrow-center hero_button'>
 <a href='#cateringmeny' class='avia-button avia-icon_select-no avia-size-small avia-color-theme-color'><span class='avia_iconbox_title'>Se cateringmeny</span></a>
-<a href="tel:40318407" class="avia-button avia-icon_select-no avia-size-small avia-color-theme-color"><span class='avia_iconbox_title'>Ring oss</span></a>
+<a href="tel:40318407" class="avia-button avia-icon_select-no avia-size-small avia-color-theme-color cta-primary"><span class='avia_iconbox_title'>Ring oss</span></a>
 <a href="mailto:post@lataqueria.no" class="avia-button avia-icon_select-no avia-size-small avia-color-theme-color"><span class='avia_iconbox_title'>Send e-post</span></a>
 </div>
 </div></div></div></div></div>
