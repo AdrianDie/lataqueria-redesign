@@ -1,21 +1,21 @@
 
 @font-face { 
      font-family: 'akrobat-extrabold';
-     src:    url('../../../../wp-content/uploads/avia_fonts/type_fonts/akrobat-extrabold/akrobat-extrabold.ttf') format('truetype');
+     src:    url('../fonts/akrobat-extrabold.ttf') format('truetype');
      font-style:  normal;
      font-weight: 800;
      font-display: auto;
 }
 @font-face { 
      font-family: 'akrobat-regular';
-     src:    url('../../../../wp-content/uploads/avia_fonts/type_fonts/akrobat-regular/akrobat-regular.ttf') format('truetype');
+     src:    url('../fonts/akrobat-regular.ttf') format('truetype');
      font-style:  normal;
      font-weight: 400;
      font-display: auto;
 }
 @font-face { 
      font-family: 'permanent-marker1';
-     src:    url('../../../../wp-content/uploads/avia_fonts/type_fonts/permanent-marker1/permanentmarker-regular.ttf') format('truetype');
+     src:    url('../fonts/permanentmarker-regular.ttf') format('truetype');
      font-style:  normal;
      font-weight: 400;
      font-display: auto;

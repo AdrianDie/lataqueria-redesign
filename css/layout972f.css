@@ -1182,7 +1182,7 @@ z-index: 5;
 }
 
 .ajax_load_inner{
-background: url("../images/layout/loading.gif") no-repeat scroll center center #fff;
+background: url("../images/loading.gif") no-repeat scroll center center #fff;
 opacity: 0.5;
 position: absolute;
 top:0;
