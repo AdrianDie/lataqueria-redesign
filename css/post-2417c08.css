@@ -455,17 +455,28 @@ font-size:16px;
 #top .av-main-nav > li > a:hover .avia-menu-text{color:#47a391 !important;}
 #top .av-main-nav > li > a:hover .avia-menu-text::after{width:100%;}
 
-#top .avia-button.avia-color-theme-color,
-#top .avia-button.cta-primary{
-background-color:#F26419 !important;
+#top .avia-button.avia-color-theme-color:not(.cta-primary){
+background-color:transparent !important;
 border-color:#F26419 !important;
-color:#000000 !important;
+color:#F26419 !important;
 transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease !important;
 }
-#top .avia-button.avia-color-theme-color:hover,
+#top .avia-button.avia-color-theme-color:not(.cta-primary) .avia_iconbox_title{color:#F26419 !important;transition:color 0.25s ease !important;}
+#top .avia-button.avia-color-theme-color:not(.cta-primary):hover{
+background-color:#F26419 !important;
+color:#000000 !important;
+transform:translateY(-3px);
+box-shadow:0 10px 24px rgba(242,100,25,0.4);
+}
+#top .avia-button.avia-color-theme-color:not(.cta-primary):hover .avia_iconbox_title{color:#000000 !important;}
+
+#top .avia-button.cta-primary{
+transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease !important;
+}
 #top .avia-button.cta-primary:hover{
 background-color:#d9550f !important;
 color:#ffffff !important;
 transform:translateY(-3px);
 box-shadow:0 10px 24px rgba(242,100,25,0.4);
 }
+#top .avia-button.cta-primary:hover .avia_iconbox_title{color:#ffffff !important;}
