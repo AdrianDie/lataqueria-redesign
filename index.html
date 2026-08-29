@@ -293,10 +293,25 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 	transition: transform 0.4s ease;
 }
 .gallery-bento-item:hover img { transform: scale(1.05); }
-.gallery-bento-big { grid-column: span 2; grid-row: span 2; }
-.gallery-bento-wide { grid-column: span 2; }
+/* Explicit placement, not auto-flow: dense - dense packing left a hole
+   in the last row since 4+2+6x1=12 cells fits a 4x3 grid exactly, but
+   the algorithm didn't find that tiling on its own. Hand-placed so
+   every cell is used once: big tile top-left (2x2), tall tile middle
+   (1x2, matches these portrait photos far better than a wide 2x1
+   would - that cropped nearly the whole photo away). */
+.gallery-bento-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+.gallery-bento-item:nth-child(2) { grid-column: 3 / 4; grid-row: 1 / 2; }
+.gallery-bento-item:nth-child(3) { grid-column: 4 / 5; grid-row: 1 / 2; }
+.gallery-bento-item:nth-child(4) { grid-column: 4 / 5; grid-row: 2 / 3; }
+.gallery-bento-item:nth-child(5) { grid-column: 1 / 2; grid-row: 3 / 4; }
+.gallery-bento-item:nth-child(6) { grid-column: 3 / 4; grid-row: 2 / 4; }
+.gallery-bento-item:nth-child(7) { grid-column: 2 / 3; grid-row: 3 / 4; }
+.gallery-bento-item:nth-child(8) { grid-column: 4 / 5; grid-row: 3 / 4; }
 @media (max-width: 767px) {
 	.gallery-bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+	.gallery-bento-item:nth-child(n) { grid-column: auto; grid-row: auto; }
+	.gallery-bento-item:nth-child(1) { grid-column: 1 / 3; grid-row: span 2; }
+	.gallery-bento-item:nth-child(6) { grid-row: span 2; }
 }
 
 /* --- MENU TEASER (3 dishes + link to /meny/) --- */
@@ -522,7 +537,7 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 
 <div id='gallerydiv'  class='avia-section av-l4zfmiqa-cfdcd201dbea6025ae2a0dc61f532683 main_color avia-section-default avia-no-border-styling  avia-builder-el-59  el_after_av_section  el_before_av_section  avia-bg-style-scroll container_wrap fullsize'  ><div class='container av-section-cont-open' ><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-241'><div class='entry-content-wrapper clearfix'>
 <div class='av-special-heading av-special-heading-h3 blockquote modern-quote modern-centered'><h3 class='av-special-heading-tag' itemprop="headline">FRA KJØKKENET</h3><div class="special-heading-border"><div class="special-heading-inner-border"></div></div></div>
-<div class="gallery-bento"><div class="gallery-bento-item gallery-bento-big"><img decoding="async" src="images/D4_0112-Enhanced-NR-735x1030.jpg" alt="D4_0112-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0068-Enhanced-NR-503x705.jpg" alt="D4_0068-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0078-Enhanced-NR-503x705.jpg" alt="D4_0078-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0086-Enhanced-NR-503x705.jpg" alt="D4_0086-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/1M1A3513-Enhanced-NR-503x705.jpg" alt="1M1A3513-Enhanced-NR"></div><div class="gallery-bento-item gallery-bento-wide"><img decoding="async" src="images/1M1A3554-Enhanced-NR-503x705.jpg" alt="1M1A3554-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0105-Enhanced-NR-503x705.jpg" alt="D4_0105-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0110-Enhanced-NR-504x705.jpg" alt="D4_0110-Enhanced-NR"></div></div>
+<div class="gallery-bento"><div class="gallery-bento-item gallery-bento-big"><img decoding="async" src="images/D4_0112-Enhanced-NR-735x1030.jpg" alt="D4_0112-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0068-Enhanced-NR-503x705.jpg" alt="D4_0068-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0078-Enhanced-NR-503x705.jpg" alt="D4_0078-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0086-Enhanced-NR-503x705.jpg" alt="D4_0086-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/1M1A3513-Enhanced-NR-503x705.jpg" alt="1M1A3513-Enhanced-NR"></div><div class="gallery-bento-item gallery-bento-tall"><img decoding="async" src="images/1M1A3554-Enhanced-NR-503x705.jpg" alt="1M1A3554-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0105-Enhanced-NR-503x705.jpg" alt="D4_0105-Enhanced-NR"></div><div class="gallery-bento-item"><img decoding="async" src="images/D4_0110-Enhanced-NR-504x705.jpg" alt="D4_0110-Enhanced-NR"></div></div>
 </p>
 </div></div></div><!-- close content main div --></div></div><div id='cateringteaser' class='avia-section main_color avia-section-default avia-no-border-styling container_wrap fullsize'><div class='container av-section-cont-open'><div class='template-page content av-content-full alpha units'><div class='post-entry post-entry-type-page'><div class='entry-content-wrapper clearfix'>
 <div class="catering-teaser-row">
