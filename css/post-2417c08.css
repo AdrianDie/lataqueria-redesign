@@ -480,3 +480,13 @@ transform:translateY(-3px);
 box-shadow:0 10px 24px rgba(230,185,77,0.4);
 }
 #top .avia-button.cta-primary:hover .avia_iconbox_title{color:#000000 !important;}
+
+/* Body content a touch lighter than header/footer (#2f2f2f) for depth -
+   header, footer/contact, socket and photo sections (hero/takeaway) keep
+   the original color, only the plain dark content bands move up. */
+#top #main, #top #wrap_all,
+#top #menu.main_color, #top #gallerydiv.main_color, #top #aboutus.main_color,
+#top #av_section_intro.main_color, #top #cateringmeny.main_color, #top #galleri.main_color,
+#top #av_section_3.main_color {
+background-color:#3a3a3a !important;
+}
