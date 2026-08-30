@@ -214,6 +214,7 @@ PLAu:7
 #top .avia-buttonrow-wrap .avia-button.avia-color-theme-color.cta-primary,
 #top .avia-buttonrow-wrap .avia-button.avia-color-theme-color.cta-primary .avia_iconbox_title {
 	background-color: #FFEFB4 !important;
+	border-color: #FFEFB4 !important;
 	color: #000 !important;
 }
 
@@ -460,6 +461,16 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 }
 #aboutus {
 	margin-bottom: 0 !important;
+}
+/* Hero skull+"LA TAQUERIA"+tagline graphic (hero-1.png) duplicated the
+   header's own "LA TAQUERIA" wordmark right above it on narrow
+   screens - two brand lockups stacked in the first viewport read as
+   cluttered. Adrian: remove it there rather than just shrink it.
+   Desktop/tablet have more room and weren't flagged, left as-is. */
+@media (max-width: 767px) {
+	#av_section_1 .av-l4v60n60-57e5482d1c893e2a41d1bb944fcf3942 {
+		display: none;
+	}
 }
 
 /* --- KONTAKT/FOOTER: avia-section-no-padding satte 0 padding-top,
