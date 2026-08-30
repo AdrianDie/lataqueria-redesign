@@ -120,12 +120,21 @@ PLAu:7
    ============================================================ */
 
 /* --- TRANSPARENT HEADER, SOLID ON SCROLL ------------------------
-   Base state is forced transparent here (not left to the theme's own
-   av_header_transparency rule) since that rule ties in specificity
-   with this block and lost depending on stylesheet load order,
-   leaving the header solid at the top. .header-solid is added by a
-   small scroll listener below once the page scrolls past the top,
-   and overrides this back to the theme's plain dark default. */
+   Two separate elements were solid, not one: .header_bg (fixed below)
+   AND #header itself, which enfold_childf51b.css sets unconditionally
+   to #header{background-color:#2f2f2f} (a page-builder header-color
+   setting baked into the generated child-theme CSS, unrelated to
+   av_header_transparency entirely) - that rule alone was enough to
+   keep the header looking solid even with .header_bg transparent.
+   .header-solid is added by the small scroll listener below once the
+   page scrolls past the top, and restores both back to solid dark. */
+#header {
+	background-color: transparent !important;
+	transition: background-color 0.3s ease;
+}
+#header.header-solid {
+	background-color: #2f2f2f !important;
+}
 #header.av_header_transparency .header_bg {
 	background-color: transparent !important;
 	opacity: 0 !important;
