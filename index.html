@@ -467,6 +467,22 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 #contact {
 	padding-top: 50px;
 }
+/* Same missing-responsive-override bug as #aboutus: the 3 footer
+   columns (.av_one_third) stay at a fixed 33% width at every screen
+   size - on mobile that's ~100px, not enough for "Mandag:  14:00 -
+   21:30" to fit on one line, so it wrapped mid-time and looked
+   uncentered (each column's own text is centered, but the column
+   itself sits off to one side of a mostly-empty row). Full width +
+   nowrap on the hours list specifically, so the day/time pairs never
+   break mid-phrase regardless of exact width. */
+@media (max-width: 989px) {
+	#contact .flex_column_table > .flex_column {
+		width: 100% !important;
+	}
+	#contact .av-2qmgz-1-9b4c522415e84228861004b60ff80c61 span {
+		white-space: nowrap;
+	}
+}
 
 /* --- TAKEAWAY: av-minimum-height (removed above, in the HTML) made
    .content a vertically-centered table-cell, so the 130px huge-section
