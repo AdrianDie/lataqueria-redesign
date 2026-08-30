@@ -442,6 +442,22 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 	flex-wrap: wrap;
 	align-items: center;
 }
+/* .av_one_half's width:47% (grid972f.css) is unconditional - there
+   never was a responsive override stacking it to 100% below 990px.
+   Combined with align-items:center above, two ~47%-wide columns still
+   pair up per row even on a phone, and pairing wildly different
+   heights (e.g. 951px next to 114px) center-aligns the short one,
+   leaving hundreds of px of blank dark space above/below it. Found
+   this checking the rest of the page on mobile after the gallery
+   report - not confirmed as what Adrian saw, but a real bug either
+   way (columns should stack full-width below the same breakpoint
+   used everywhere else on this page). */
+@media (max-width: 989px) {
+	#aboutus .flex_column {
+		width: 100% !important;
+		margin-left: 0 !important;
+	}
+}
 #aboutus {
 	margin-bottom: 0 !important;
 }
