@@ -144,6 +144,23 @@ PLAu:7
 	background-color: #2f2f2f !important;
 	opacity: 1 !important;
 }
+/* Enfold un-fixes the header below 990px (switches to its tablet/
+   mobile hamburger nav mode: .responsive...#header{position:relative}
+   at (768px, 989px) and (max-width:767px)), so it sits in normal flow
+   ABOVE the hero video instead of overlaying it - no amount of
+   transparency shows the video through a header that isn't over it.
+   #main gets no top padding in that mode (it doesn't need any when
+   the header isn't fixed), and the theme's own reset for that -
+   .responsive.html_mobile_menu_tablet.html_header_top #top #main
+   {padding-top:0 !important} - outranks a plain #main !important
+   override (2 IDs+4 classes beats 1 ID), so match its ID count here. */
+@media (max-width: 989px) {
+	#header { position: fixed !important; }
+	#top #wrap_all #main { padding-top: 90px !important; }
+}
+@media (max-width: 767px) {
+	#top #wrap_all #main { padding-top: 80px !important; }
+}
 
 /* --- PRIMARY CTA: one filled action per button row, rest stay outline ---
    Three buttons in a row (hero, takeaway) rendered visually
