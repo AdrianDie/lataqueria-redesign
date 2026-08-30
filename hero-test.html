@@ -193,6 +193,16 @@ PLAu:7
 		top: -88px !important;
 		height: calc(100% + 88px) !important;
 	}
+	/* The dark .av-section-color-overlay (opacity:0.6, sits over the
+	   video for text contrast) is a normal-flow sibling, not part of
+	   .avia-slideshow, so it kept the section's original y:88 top/
+	   671px height while the video above stretched to y:0 - the
+	   un-overlaid strip read as a bright seam where they used to line
+	   up exactly. Same extension, same boundary, so they match again. */
+	#av_section_1 .av-section-color-overlay {
+		top: -88px !important;
+		height: calc(100% + 88px) !important;
+	}
 }
 #av_section_1 video.avia_video {
 	object-fit: cover;
