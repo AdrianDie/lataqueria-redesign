@@ -174,6 +174,29 @@ PLAu:7
 	#top #wrap_all #main { padding-top: 80px !important; }
 	#top #wrap_all #main #av_section_1 { margin-top: -80px !important; }
 }
+/* At >=990px the header stays properly fixed, so pulling the whole
+   section up (like below 990px) isn't needed and would shift the
+   vertically-centered heading/buttons up too. Only the video itself
+   needs to reach y:0 - it's Enfold's own JS that's supposed to stretch
+   it there (measured working at 1996px: video top:-18px, height
+   1123px), but that JS apparently doesn't fire/recalculate at every
+   desktop width - confirmed broken at 1024px, where the <video> had
+   no inline size override at all and just filled its section exactly,
+   flush with #main's 88px padding same as every section below it.
+   Extending .avia-slideshow itself (the overflow:hidden boundary one
+   level up from the <video>) covers both cases: where JS already
+   stretches the video further, this just gives it a taller box to
+   stretch within; where JS never fires, the video's own 100%/100%
+   CSS sizing now resolves against this taller box on its own. */
+@media (min-width: 990px) {
+	#av_section_1 .avia-slideshow {
+		top: -88px !important;
+		height: calc(100% + 88px) !important;
+	}
+}
+#av_section_1 video.avia_video {
+	object-fit: cover;
+}
 
 /* --- PRIMARY CTA: one filled action per button row, rest stay outline ---
    Three buttons in a row (hero, takeaway) rendered visually
