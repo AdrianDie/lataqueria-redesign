@@ -33,6 +33,7 @@
 <link rel='stylesheet' id='avia-dynamic-css' href="../css/enfold_childf51b.css?ver=690a1fb98a2ef" media='all' />
 <link rel='stylesheet' id='avia-custom-css' href="../css/custom972f.css?ver=5.0.1" media='all' />
 <link rel='stylesheet' id='avia-style-css' href="../css/style972f.css?ver=5.0.1" media='all' />
+<link rel='stylesheet' id='avia-single-post-241-css' href="../css/post-2417c08.css?ver=ver-1765986719" media='all' />
 <script id="jquery-core-js" src="../js/jquery.minf43b.js?ver=3.7.1"></script>
 <script id="jquery-migrate-js" src="../js/jquery-migrate.min5589.js?ver=3.4.1"></script>
 <script id="avia-compat-js" src="../js/avia-compat972f.js?ver=5.0.1"></script>
@@ -64,11 +65,93 @@ url('../fonts/entypo-fontellod41d.eot?#iefix') format('embedded-opentype');
 </style>
 
 <style>
+/* --- TRANSPARENT HEADER, SOLID ON SCROLL (matches homepage/catering) --- */
+#header.av_header_transparency .header_bg { transition: background-color 0.3s ease, opacity 0.3s ease; }
+#header.av_header_transparency.header-solid .header_bg {
+	background-color: #2f2f2f !important;
+	opacity: 1 !important;
+}
+
+/* --- NORMAL DESKTOP NAV (drop the always-on burger) --- */
+@media (min-width: 990px) {
+	.av-logo-container .inner-container {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+	}
+	nav.main_menu, .av-main-nav-wrap {
+		position: static !important;
+		width: auto !important;
+	}
+	.logo.avia-standard-logo {
+		position: static !important;
+	}
+	#avia-menu {
+		display: flex !important;
+		align-items: center !important;
+	}
+	#avia-menu > li:first-child { display: none !important; }
+}
+
+/* --- FIXED HEADER CTA (desktop) --- */
+#header-cta-btn { display: none; }
+@media (min-width: 990px) {
+	#header-cta-btn {
+		display: flex !important;
+		align-items: center !important;
+		position: static !important;
+		margin-left: 24px !important;
+		height: auto !important;
+		min-height: 44px !important;
+		line-height: normal !important;
+		background-color: #FFEFB4 !important;
+		color: #000 !important;
+		font-weight: 600 !important;
+		font-size: 15px !important;
+		padding: 10px 20px !important;
+		border-radius: 4px !important;
+		text-decoration: none !important;
+		white-space: nowrap !important;
+		transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+	}
+	#header-cta-btn:hover {
+		background-color: #E6B94D !important;
+		color: #000 !important;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 18px rgba(230,185,77,0.4);
+	}
+}
+
+/* --- PRIMARY CTA: one filled action per button row, rest stay outline --- */
+#top .avia-buttonrow-wrap .avia-button.avia-color-theme-color.cta-primary,
+#top .avia-buttonrow-wrap .avia-button.avia-color-theme-color.cta-primary .avia_iconbox_title {
+	background-color: #FFEFB4 !important;
+	border-color: #FFEFB4 !important;
+	color: #000 !important;
+}
+#top .avia-buttonrow-wrap .avia-button.avia-size-small {
+	min-height: 44px;
+	display: inline-flex;
+	align-items: center;
+}
+
+/* --- NO HOVER ANIMATIONS (matches homepage/catering) --- */
+#top .avia-button:hover,
+#top .av_header_transparency .main_menu ul:first-child > li > a:hover,
+#top .main_menu ul:first-child > li > a:hover {
+	opacity: 1 !important;
+}
+#top .av-main-nav li:hover .avia-menu-fx,
+#top .av-main-nav .avia-menu-fx { opacity: 0 !important; }
+#top .avia-button,
+#top .main_menu ul:first-child > li > a,
+#top .av-main-nav .avia-menu-fx { transition: none !important; }
+
 /* --- HERO --- */
 #hero.av-catering-hero { background: linear-gradient(rgba(15,15,15,.55), rgba(15,15,15,.55)), url('../images/spread-1.webp') center/cover no-repeat; }
 #hero.av-catering-hero .av-special-heading-tag,
 #hero.av-catering-hero .special-heading-inner-border { color: #ffffff !important; }
-.buffet-price-line { font-size: 22px; color: #FFEFB4; font-weight: 700; margin: 4px 0 0; }
+.buffet-price-line { font-size: 22px; color: #FFEFB4; font-weight: 700; margin: 4px 0 0; text-align: center; }
 .buffet-price-line span { display: block; font-size: 15px; color: #ffffff; font-weight: 500; margin-top: 6px; }
 
 /* --- DETTE FÅR DU --- */
@@ -87,6 +170,31 @@ url('../fonts/entypo-fontellod41d.eot?#iefix') format('embedded-opentype');
 .whyus-icon { width: 40px; height: 40px; color: #1f6b5c; margin-bottom: 14px; }
 .whyus-card h3 { margin: 0 0 8px; font-size: 18px; color: #4a4a4a; }
 .whyus-card p { margin: 0; font-size: 15px; line-height: 1.6; color: #4a4a4a; }
+
+/* --- GALLERY: real CSS grid, even crop (3 images, not the 9-image masonry) --- */
+#buffetgallery .flex_column_table {
+	display: grid !important;
+	grid-template-columns: repeat(1, 1fr) !important;
+	gap: 12px !important;
+	width: 100% !important;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+@media (min-width: 640px) { #buffetgallery .flex_column_table { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; } }
+#buffetgallery .flex_column {
+	width: 100% !important;
+	margin: 0 !important;
+	float: none !important;
+	padding: 0 !important;
+}
+#buffetgallery .avia-image-container-inner { overflow: hidden; border-radius: 6px; }
+#buffetgallery .avia_image {
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 4 / 5 !important;
+	object-fit: cover !important;
+	display: block !important;
+}
 
 /* --- FINN OSS (anmeldelser + åpningstider + kart) --- */
 #hoursmap.main_color { background-color: #FBF7EE !important; background-image: none !important; border-top: none !important; }
