@@ -357,6 +357,10 @@ PLAu:7
 html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 @media (max-width: 989px) {
 	#contact { padding-bottom: calc(64px + env(safe-area-inset-bottom)) !important; }
+	/* #socket (the site footer/copyright bar) sits after #contact, outside it,
+	   so the padding above doesn't protect it - the sticky CTA bar was covering
+	   the "Nettside levert av Dietrichs Marketing" credit line. */
+	#socket .container { padding-bottom: calc(64px + env(safe-area-inset-bottom)) !important; }
 	#mobile-cta-bar {
 		display: flex;
 		position: fixed;
@@ -384,6 +388,17 @@ html.av-burger-overlay-active #mobile-cta-bar { display: none !important; }
 		background-color: #FFEFB4;
 		color: #000;
 	}
+}
+
+/* Make the "Dietrichs Marketing" footer credit read as a link, not plain text */
+#socket .copyright a[href*="dmarketing"] {
+	color: #FFEFB4 !important;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+#socket .copyright a[href*="dmarketing"]:hover {
+	color: #fff !important;
 }
 
 /* --- NEW SECTIONS: generous vertical breathing room --- */
