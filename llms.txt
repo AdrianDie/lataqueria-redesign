@@ -1,0 +1,21 @@
+# La Taqueria
+
+> Authentic Mexican restaurant in Bergen (Engen 8). Fresh tacos, burritos and fajitas, plus catering, taco buffet and takeaway via Wolt and Foodora. Slogan: "Taco to the people".
+
+- Address: Engen 8, 5011 Bergen, Norway
+- Phone: +47 403 18 407
+- Email: post@lataqueria.no
+- Opening hours: Monday–Thursday and Sunday 14:00–21:30, Friday–Saturday 14:00–22:30
+- Cuisine: Mexican
+
+## Book and order
+
+- [Book a table](https://booking.gastroplanner.no/lataqueria/t)
+- [Delivery via Wolt](https://wolt.com/en/nor/bergen/restaurant/la-taqueria-bergen)
+
+## Pages
+
+- [Home](https://lataqueria.no/): overview, opening hours, location
+- [Menu](https://lataqueria.no/meny/): full menu
+- [Catering](https://lataqueria.no/catering/): Mexican catering for events
+- [Taco buffet](https://lataqueria.no/tacobuffet/): taco buffet for groups
