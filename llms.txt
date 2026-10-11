@@ -13,7 +13,12 @@
 - [Book a table](https://booking.gastroplanner.no/lataqueria/t)
 - [Delivery via Wolt](https://wolt.com/en/nor/bergen/restaurant/la-taqueria-bergen)
 
-## Pages
+## Pages in English
+
+- [Home (English)](https://lataqueria.no/en/): overview, opening hours, reviews, booking, location
+- [Menu (English)](https://lataqueria.no/en/menu/): full food and drinks menu with prices and allergens
+
+## Pages in Norwegian
 
 - [Home](https://lataqueria.no/): overview, opening hours, location
 - [Menu](https://lataqueria.no/meny/): full menu

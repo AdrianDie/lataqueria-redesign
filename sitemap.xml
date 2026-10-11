@@ -20,4 +20,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://lataqueria.no/en/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lataqueria.no/en/menu/</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
